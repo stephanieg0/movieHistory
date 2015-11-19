@@ -6,5 +6,4 @@ define(function(require){
 	var lodash = require("lodash");
 	var Firebase = require("firebase");
 	var Q = require("q");
-	var dom = require("dom");
 });
