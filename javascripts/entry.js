@@ -16,11 +16,12 @@ requirejs.config({
 
 requirejs(
   
-  ["dependencies", "user-create", "user-login"], 
+  ["dependencies", "user-create", "user-login", "movie-data", "search-movie"], 
   //^dependencies on dependencies.js
 
   //the dependencies get passed as arguments into the function.
-  function(dependencies, userCreate, userLogin) {
+  function(dependencies, userCreate, userLogin, movieData, searchMovie) {
+
 
  
 
