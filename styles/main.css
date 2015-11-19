@@ -1,5 +1,7 @@
-body {
-  font: 100% Helvetica, sans-serif;
-  color: #333; }
+#nav-bar {
+  border: 1px solid black; }
+
+#logout {
+  float: right; }
 
 /*# sourceMappingURL=main.css.map */
