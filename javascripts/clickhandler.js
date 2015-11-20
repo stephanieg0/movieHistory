@@ -2,7 +2,6 @@ define(function(require) {
   //Dependencies for the create and login functions
   var create = require("user-create");
   var login = require("user-login");
-  var dom = require("dom");
   // Ref to firebase
   var ref = new Firebase("https://movie-history-app.firebaseio.com/");
 
@@ -12,15 +11,14 @@ define(function(require) {
     // $("#register").click(function(){
       console.log("register click");
       //promise from user-create.js
-      // create.userCreate()
-      // .then(function(){
+      create.userCreate().then(function(){
         console.log("user created");
         // Do stuff
-        dom.loadMain();
       })
       .fail(function(){
         alert("error, the specified email is invalid");      
       });
+  });
 
   //Shows user's profile after user logs in
   $("body").on('click', "#signIn", function() {

@@ -3,6 +3,8 @@ define(function(require){
 	var $ = require("jquery");
 	var Firebase = require("firebase");
 	var Q = require("q");
+	var dom = require("dom");
+
 
   	//make a variable to return a promise.
   	var deferred = Q.defer();
@@ -22,6 +24,7 @@ define(function(require){
 			  	alert(error);
 			    console.log("Error creating user:", error);
 			  } else {
+			  	dom.loadMain();
 			    console.log("Successfully created user account with uid:", userData.uid);
 			  	}
 			});
