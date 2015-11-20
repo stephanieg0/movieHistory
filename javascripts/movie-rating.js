@@ -4,6 +4,7 @@ define(function(require){
 	$(':radio').change(function(){
 		$('.choice').text( this.value + ' stars' );
 		console.log("value", this.value);
+		console.log("choice", $(".choice"));
 	});
 
 
