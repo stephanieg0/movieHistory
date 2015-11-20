@@ -2,6 +2,7 @@ define(function(require) {
   //Dependencies for the create and login functions
   var create = require("user-create");
   var login = require("user-login");
+  var add = require("add");
 
   // Ref to firebase
   var ref = new Firebase("https://movie-history-app.firebaseio.com/");
@@ -63,6 +64,19 @@ define(function(require) {
       ref.unauth();
       console.log("you have logged out");
     });
+
+  // User clicking add to have movie added to their profile
+    $("#add").click(function(){
+      console.log("add click");
+      add.addInfo()
+      .then(function(){
+        console.log("user logged in");
+      //Do stuff
+      })
+      .fail(function(){
+        alert("Please make an account");  
+      });
+    });  
 
 
 

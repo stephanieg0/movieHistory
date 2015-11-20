@@ -1,6 +1,7 @@
 define(function(require){
 	var $ = require("jquery");
 	var Firebase = require("firebase");
+  var gs = require("get-set");
 	var Q = require("q");
 
 	//make a variable to return a promise.
@@ -21,8 +22,10 @@ define(function(require){
         if (error) {
           deferred.reject(error);
           console.log("Login Failed!", error);
+          alert(error);
         } else {
           deferred.resolve(ref.authWithPassword);
+          gs.setUid(authData.uid);
           console.log("Authenticated successfully with payload:", authData);
           console.log("Authenticated successfully with payload:", authData.uid);
           
