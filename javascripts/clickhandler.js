@@ -8,8 +8,8 @@ define(function(require) {
 
   //If the promise resolved, the user will be able to move onto the form.
   //Shows form after user creates new account
-  // $("body").on('click', "#register", function() {
-    $("#register").click(function(){
+  $("body").on('click', "#register", function() {
+    // $("#register").click(function(){
       console.log("register click");
       //promise from user-create.js
       create.userCreate()
@@ -23,8 +23,8 @@ define(function(require) {
     });
 
   //Shows user's profile after user logs in
-  // $("body").on('click', "#signIn", function() {
-    $("#signIn").click(function(){
+  $("body").on('click', "#signIn", function() {
+    // $("#signIn").click(function(){
       console.log("sign click");
       //If promise is true, it calls the function and moves onto next template.
       //if promie fails, it errors and it does not move on.
