@@ -19,11 +19,12 @@ define(function(require){
 		  		password : $("#password").val()
 			}, function(error, userData) {
 			  if (error) {
+			  	alert(error);
 			    console.log("Error creating user:", error);
 			  } else {
 			    console.log("Successfully created user account with uid:", userData.uid);
 			  	}
 			});
-		};
+		}
 	};
 });

@@ -17,11 +17,11 @@ requirejs.config({
 
 require(
   
-  ["dependencies", "user-create", "user-login", "dom"], 
+  ["dependencies", "user-create", "user-login", "dom", "clickhandler"], 
   //^dependencies on dependencies.js
 
   //the dependencies get passed as arguments into the function.
-  function(dependencies, userCreate, userLogin, dom) {
+  function(dependencies, userCreate, userLogin, dom, clickhandler) {
 
  
 

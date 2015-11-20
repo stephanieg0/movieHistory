@@ -1,10 +1,13 @@
-var userStorage = require("userStorage");
-  var completeProfile = require('complete-profile');
-  var Q = require("q");
-  var deferred = Q.defer();
+define(function(require){
+	var $ = require("jquery");
+	var Firebase = require("firebase");
+	var Q = require("q");
 
-  //get a reference to our Firebase app
-  var ref = new Firebase("https://movie-history-app.firebaseio.com");
+	//make a variable to return a promise.
+  	var deferred = Q.defer();
+
+  	//get a reference to our Firebase app
+  	var ref = new Firebase("https://movie-history-app.firebaseio.com");
 
   //returning function to the clickhandler.js for the login only
   return {
@@ -22,9 +25,10 @@ var userStorage = require("userStorage");
           deferred.resolve(ref.authWithPassword);
           console.log("Authenticated successfully with payload:", authData);
           console.log("Authenticated successfully with payload:", authData.uid);
+          
 
         //need to pass ID info to new function to populate the Dom.
-        completeProfile.showProfile(authData.uid);
+        // completeProfile.showProfile(authData.uid);
         }
       });
       return deferred.promise;
@@ -57,24 +61,24 @@ var userStorage = require("userStorage");
 
 
 
-define(function(require){
-	var $ = require("jquery");
-	var Firebase = require("firebase");
+// define(function(require){
+// 	var $ = require("jquery");
+// 	var Firebase = require("firebase");
 
-	var ref = new Firebase("https://movie-history-app.firebaseio.com");
+// 	var ref = new Firebase("https://movie-history-app.firebaseio.com");
 
-	//login with password
-	$("#signIn").click(function(){
-		ref.authWithPassword({
-		  email    : $("#email").val(),
-		  password : $("#password").val()
-		}, function(error, authData) {
-		  if (error) {
-		    console.log("Login Failed!", error);
-		  } else {
-		    console.log("Authenticated successfully with payload:", authData);
-		  }
-		});
-		});
+// 	//login with password
+// 	$("#signIn").click(function(){
+// 		ref.authWithPassword({
+// 		  email    : $("#email").val(),
+// 		  password : $("#password").val()
+// 		}, function(error, authData) {
+// 		  if (error) {
+// 		    console.log("Login Failed!", error);
+// 		  } else {
+// 		    console.log("Authenticated successfully with payload:", authData);
+// 		  }
+// 		});
+// 		});
 
-});//end of define
+// });//end of define
