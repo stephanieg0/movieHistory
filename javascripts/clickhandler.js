@@ -4,6 +4,7 @@ define(function(require) {
   var login = require("user-login");
   // Ref to firebase
   var ref = new Firebase("https://movie-history-app.firebaseio.com/");
+  var dom = require("dom");
 
   //If the promise resolved, the user will be able to move onto the form.
   //Shows form after user creates new account
@@ -29,10 +30,11 @@ define(function(require) {
       //promise from user-login.js
       login.userLogin().then(function(){
         console.log("user logged in");
-      //Do stuff
-      dom.loadMain();
+        //Do stuff
+        dom.loadMain();
       })
-      .fail(function(){
+      .fail(function(error){
+        console.log("error", error)
         alert("Please make an account");  
       });
     });
@@ -54,9 +56,13 @@ define(function(require) {
       // Will set the watched key to true
     // });
 
+  $("body").on("click", "#find-movies", function(){
+          dom.findMovies();
+    })
+
   // Logging out
-  // $("body").on('click', "#logout", function() {
-    $("#logout").click(function(){
+  $("body").on('click', "#logout", function() {
+    // $("#logout").click(function(){
       console.log("click log out");
       ref.unauth();
       console.log("you have logged out");
