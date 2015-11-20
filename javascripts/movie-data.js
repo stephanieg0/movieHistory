@@ -3,13 +3,13 @@ define(function(require){
 	var Q = require("q");
 	var searchMovie = ("search-movie");
 
-	var deferred = Q.defer();
 
 	//Getting movie json data from omdbapi.com
 	return {
 		
 		//ajax call
 		movies: function() {
+			var deferred = Q.defer();
 			var movieInput = $("#inputTitle").val();
 			$.ajax({url: "http://www.omdbapi.com/?t=" + movieInput + "&y=&plot=short&r=json",
 				method: "GET",
@@ -27,6 +27,7 @@ define(function(require){
 					console.log("error");
 					deferred.reject(error);
 				});
+				movieInput = $("#inputTitle").val("");
 				//returning promise
 				return deferred.promise;
 		}

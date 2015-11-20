@@ -7,7 +7,7 @@ define(function(require){
 	$("#searchMovie").click(function(){
 		movieData.movies()
 		.then(function(data){
-			console.log("promise kept");
+			console.log("promise kept", data);
 			movieDom.movieForm(data)
 		})
 		.fail(function(){
