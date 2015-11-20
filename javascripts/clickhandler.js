@@ -2,7 +2,7 @@ define(function(require) {
   //Dependencies for the create and login functions
   var create = require("user-create");
   var login = require("user-login");
-
+  var dom = require("dom");
   // Ref to firebase
   var ref = new Firebase("https://movie-history-app.firebaseio.com/");
 
@@ -12,15 +12,15 @@ define(function(require) {
     // $("#register").click(function(){
       console.log("register click");
       //promise from user-create.js
-      create.userCreate()
-      .then(function(){
+      // create.userCreate()
+      // .then(function(){
         console.log("user created");
         // Do stuff
+        dom.loadMain();
       })
       .fail(function(){
         alert("error, the specified email is invalid");      
       });
-    });
 
   //Shows user's profile after user logs in
   $("body").on('click', "#signIn", function() {
@@ -29,10 +29,10 @@ define(function(require) {
       //If promise is true, it calls the function and moves onto next template.
       //if promie fails, it errors and it does not move on.
       //promise from user-login.js
-      login.userLogin()
-      .then(function(){
+      login.userLogin().then(function(){
         console.log("user logged in");
       //Do stuff
+      dom.loadMain();
       })
       .fail(function(){
         alert("Please make an account");  
@@ -40,21 +40,21 @@ define(function(require) {
     });
 
   //Add button will add movie to users account, default is unwatched
-    $("body").on('click', "#add", function(){
+    // $("body").on('click', "#add", function(){
       // Do stuff
       // Will set the watched key to false
-    });
+    // });
 
   //Unwatched will show unwatched movies 
-    $("body").on('click', "#unwatched", function(){
+    // $("body").on('click', "#unwatched", function(){
       // Do stuff
-    });
+    // });
 
   //Watched will show watched movies 
-    $("body").on('click', "#watched", function(){
+    // $("body").on('click', "#watched", function(){
       // Do stuff
       // Will set the watched key to true
-    });
+    // });
 
   // Logging out
   // $("body").on('click', "#logout", function() {
