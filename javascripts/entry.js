@@ -21,7 +21,8 @@ requirejs(
 
   //the dependencies get passed as arguments into the function.
   function(dependencies, userCreate, userLogin, dom) {
-    dom.loadSplash();
 
+    dom.loadSplash();
+    // console.log("testing", dom.loadSplash());
 
  });//end of require

@@ -16,6 +16,17 @@ body::after {
 
 .splashPage {
   text-align: center;
+  height: 100%;
   vertical-align: middle; }
+
+#register {
+  float: right; }
+
+#signIn {
+  float: left; }
+
+h1 {
+  text-align: center;
+  color: #fff; }
 
 /*# sourceMappingURL=main.css.map */
