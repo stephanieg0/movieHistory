@@ -26,11 +26,6 @@ define(function (require) {
 				$("#main-content").html(movieFind);
 				$("#myModal2").modal("show");
 			})
-		},
-  	movieForm: function(data) {
-    require(['hbs!../templates/movieDataTemplate'], function (formTemplate) {
-      $("#main-content").html(formTemplate(data));
-    });
 		}
 	};
 });
