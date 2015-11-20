@@ -1,4 +1,3 @@
-
 requirejs.config({
   baseUrl: "./javascripts",
   paths:{
@@ -15,14 +14,15 @@ requirejs.config({
     }
 });
 
-require(
+requirejs(
   
-  ["dependencies", "user-create", "user-login", "dom", "clickhandler"], 
+  ["dependencies", "user-create", "user-login", "dom"], 
   //^dependencies on dependencies.js
 
   //the dependencies get passed as arguments into the function.
-  function(dependencies, userCreate, userLogin, dom, clickhandler) {
+  function(dependencies, userCreate, userLogin, dom) {
 
- 
+    dom.loadSplash();
+    // console.log("testing", dom.loadSplash());
 
  });//end of require

@@ -1,7 +1,46 @@
+$background: url(../images/background.jpeg);
+
 #nav-bar {
 	border: 1px solid black;
 }
 
 #logout{
 	float: right;
+}
+
+body {
+  width: 98%;
+  height: 100%
+}
+
+body::after {
+  content: "";
+  background: $background;
+  background-size: fixed;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+.splashPage {
+	text-align: center;
+	height: 100%; 
+	vertical-align: middle;
+}
+
+#register {
+	float: right;
+}
+
+#signIn {
+	float: left;
+}
+
+h1 {
+	text-align: center;
+	color: #fff;
 }
