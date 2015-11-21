@@ -5,10 +5,9 @@ define(function(require){
 	var movieData = require("movie-data")
 	var Q = require("q");
 
-	//have to return the function to the page view.
+	// Returning to post items to Firebase
     return {
-		//if email is not the correct format, promise will be rejected.
-      	//else the promise will be resolved.
+		
       	addInfo: function() {
       		// Getting current userID
       		var uuid = gs.getUid();
@@ -17,20 +16,19 @@ define(function(require){
       		console.log("movieObject", movieObject);
       		// Getting movie title from movie object
       		var title = movieObject.Title;
-      		console.log("title", movieObject.Title);
+      		console.log("title", title);
       		// Getting movie year from movie object
       		var year = movieObject.Year;
-      		console.log("year", movieObject.Year);
-      		// Getting movie year from movie object
+      		console.log("year", year);
+      		// Getting movie actors from movie movieObject
       		var actors = movieObject.Actors;
-      		console.log("actors", movieObject.Actors);
-
-      		var poster = movieObject.poster
+      		console.log("actors", actors);
 			//get a reference to our Firebase app
 			var ref = new Firebase("https://movie-history-app.firebaseio.com/users/"+ uuid);
       		console.log("uuid", uuid);
+      		// Pushing object to Firebase
 			ref.push({
-				
+
 		  		"title": title,
 		  		"year": year,
 		  		"actors": actors,
@@ -40,9 +38,11 @@ define(function(require){
 
 			}, function(error, userData) {
 			  if (error) {
+			  	// Error psoting to Firebase
 			  	alert(error);
 			    console.log("Error creating user:", error);
 			  } else {
+			  	// Posting was successful
 			  	}
 			});
 			// console.log("authData", uuid.uid);
