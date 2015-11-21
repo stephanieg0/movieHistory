@@ -4,6 +4,8 @@ define(function(require){
 	var Firebase = require("firebase");
 	var gs = require("get-set");
 	var Q = require("q");
+	var dom = require("dom");
+
 
   	//make a variable to return a promise.
   	var deferred = Q.defer();
@@ -24,6 +26,7 @@ define(function(require){
 			  	alert(error);
 			    console.log("Error creating user:", error);
 			  } else {
+			  	dom.loadMain();
         		console.log("inside");
         		ref.set({
           			"user_uid": userData.uid

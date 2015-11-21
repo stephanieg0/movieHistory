@@ -2,12 +2,6 @@ define(function (require) {
 
 	return {
 
-		// loadMain: function () {
-		// 	require(["hbs!../templates/mainDefault"], function (mainLoad) {
-		// 		$("#main-content").html(mainLoad);
-		// 		console.log("mainLoad", mainLoad);
-		// 	});
-		// }
 
 		loadSplash: function () {
 			console.log("is this working");
@@ -16,6 +10,22 @@ define(function (require) {
 		        $("#main-content").html(splashLoad);
 		        $('#myModal').modal("show");
 			 });
+		},
+		loadMain: function () {
+			require(["hbs!../templates/mainDefault"], function (mainLoad) {
+				$("#main-content").html(mainLoad());
+				console.log("mainLoad", mainLoad);
+				$("body").removeClass("modal-open")
+		        $('.modal-backdrop').remove();
+			});
+		},
+
+		findMovies: function() {
+			console.log("hello");
+			require(["hbs!../templates/findModal"], function (movieFind){
+				$("#main-content").html(movieFind);
+				$("#myModal2").modal("show");
+			})
 		}
 	};
 });
