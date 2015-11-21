@@ -2,6 +2,8 @@ define(function(require) {
   //Dependencies for the create and login functions
   var create = require("user-create");
   var login = require("user-login");
+  var add = require("add");
+
   // Ref to firebase
   var ref = new Firebase("https://movie-history-app.firebaseio.com/");
   var dom = require("dom");
@@ -41,9 +43,10 @@ define(function(require) {
 
   //Add button will add movie to users account, default is unwatched
     // $("body").on('click', "#add", function(){
+    $("body").on('click', ".add-button", function(){
       // Do stuff
       // Will set the watched key to false
-    // });
+    });
 
   //Unwatched will show unwatched movies 
     // $("body").on('click', "#unwatched", function(){
@@ -67,6 +70,19 @@ define(function(require) {
       ref.unauth();
       console.log("you have logged out");
     });
+
+  // User clicking add to have movie added to their profile
+    $("#add").click(function(){
+      console.log("add click");
+      add.addInfo()
+      .then(function(){
+        console.log("user logged in");
+      //Do stuff
+      })
+      .fail(function(){
+        alert("Please make an account");  
+      });
+    });  
 
 
 
