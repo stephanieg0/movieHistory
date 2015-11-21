@@ -72,7 +72,7 @@ define(function(require) {
     });
 
   // User clicking add to have movie added to their profile
-    $("#add").click(function(){
+    $("body").on('click', ".add-button", function() {
       console.log("add click");
       add.addInfo()
       .then(function(){
