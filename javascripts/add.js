@@ -2,8 +2,9 @@ define(function(require){
 	var $ = require("jquery");
 	var Firebase = require("firebase");
 	var gs = require("get-set");
-	var movieData = require("movie-data")
+	var movieData = require("movie-data");
 	var Q = require("q");
+	var dom = require("dom");
 
 	// Returning to post items to Firebase
     return {
@@ -26,6 +27,8 @@ define(function(require){
 			//get a reference to our Firebase app
 			var ref = new Firebase("https://movie-history-app.firebaseio.com/users/"+ uuid);
       		console.log("uuid", uuid);
+      		//moving to next page
+      		dom.myAddedMovies();
       		// Pushing object to Firebase
 			ref.push({
 

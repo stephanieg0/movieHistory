@@ -15,6 +15,7 @@ define(function(require){
 			// Sending movie object to setter to be able to access later
 			gs.setData(data);
 			// dom.searchResults();
+			dom.loadNavbar();
 		})
 		.fail(function(){
 			console.log("fail error");
