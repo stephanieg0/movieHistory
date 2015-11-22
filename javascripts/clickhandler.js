@@ -3,10 +3,10 @@ define(function(require) {
   var create = require("user-create");
   var login = require("user-login");
   var add = require("add");
+  var dom = require("dom");
 
   // Ref to firebase
   var ref = new Firebase("https://movie-history-app.firebaseio.com/");
-  var dom = require("dom");
 
   //If the promise resolved, the user will be able to move onto the form.
   //Shows form after user creates new account
