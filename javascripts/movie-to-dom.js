@@ -6,9 +6,10 @@ define(function(require) {
   		movieForm: function(data) {
 
 		    require(['hbs!../templates/movieDataTemplate'], function (formTemplate) {
-		      $("#main-content").html(formTemplate(data));
+		      $("#movie-poster").html(formTemplate(data));
 		      	$("body").removeClass("modal-open");
 		        $('.modal-backdrop').remove();
+		        $(".watch-button").hide();
 		    });
 	    console.log("handle bars form is linked");
 

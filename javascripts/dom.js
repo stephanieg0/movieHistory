@@ -25,7 +25,23 @@ define(function (require) {
 			require(["hbs!../templates/findModal"], function (movieFind){
 				$("#main-content").html(movieFind);
 				$("#myModal2").modal("show");
-			})
+			});
+		},
+
+		myAddedMovies: function() {
+			console.log("whatever");
+			require(["hbs!../templates/afterAdded"], function (add){
+				$("#main-content").append(add);
+				$(".add-button").hide();
+				$(".watch-button").show();
+			});
+		}, 
+
+		loadNavbar: function () {
+			console.log("something is working")
+			require(["hbs!../templates/navBar"], function (navigation) {
+				$("#main-content").html(navigation);
+			});
 		}
 	};
 });
