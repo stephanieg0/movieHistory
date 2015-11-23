@@ -6,7 +6,8 @@ define(function(require){
 	var dom = require("dom");
 	
 	//clicking for search. call a promise that will return the movie-data from url
-	$("body").on("click", "#searchMovie", function(){
+	$("#searchBox").keypress(function(){
+		if(event.which == 13){
 		console.log("click is working");
 		movieData.movies()
 		.then(function(data){
@@ -14,13 +15,9 @@ define(function(require){
 			movieDom.movieForm(data);
 			// Sending movie object to setter to be able to access later
 			gs.setData(data);
-			// dom.searchResults();
-			dom.loadNavbar();
 		})
-		.fail(function(){
-			console.log("fail error");
-		});
-
+	};
 	});
 
-});
+
+	});

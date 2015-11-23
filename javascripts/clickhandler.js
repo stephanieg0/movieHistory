@@ -12,12 +12,10 @@ define(function(require) {
   //If the promise resolved, the user will be able to move onto the form.
   //Shows form after user creates new account
   $("body").on('click', "#register", function() {
-    // $("#register").click(function(){
       console.log("register click");
       //promise from user-create.js
       create.userCreate().then(function(){
         console.log("user created");
-        // Do stuff
       })
       .fail(function(){
         alert("error, the specified email is invalid");      
@@ -26,7 +24,6 @@ define(function(require) {
 
   //Shows user's profile after user logs in
   $("body").on('click', "#signIn", function() {
-    // $("#signIn").click(function(){
       console.log("sign click");
       //If promise is true, it calls the function and moves onto next template.
       //if promie fails, it errors and it does not move on.
@@ -92,14 +89,13 @@ define(function(require) {
   // Find movies button
   $("body").on("click", "#find-movies", function(){
           dom.findMovies();
+  });
 
-    });
   // Search My movies button
   $("body").on("click", "#search-movies", function(){
           // Displaying template to DOM
           dom.findMyMovies();
-    });
-
+  });
 
   // Logging out
   $("body").on('click', "#logout", function() {
@@ -114,18 +110,7 @@ define(function(require) {
   // User clicking add to have movie added to their profile
     $("body").on('click', ".add-button", function() {
       console.log("add click");
-
       add.addInfo()
-      // .then(function(){
-      //   console.log("user logged in");
-      // dom.myAddedMovies();
-
-
-      //Do stuff
-      // })
-      // .fail(function(){
-      //   alert("Please make an account");  
-      // });
     });  
 
 

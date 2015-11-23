@@ -1,4 +1,6 @@
-	define(function (require) {
+
+define(function (require) {
+	var cat = 0;
 
 	return {
 
@@ -12,12 +14,10 @@
 			 });
 		},
 		loadMain: function () {
-			require(["hbs!../templates/mainDefault"], function (mainLoad) {
-				$("#main-content").html(mainLoad());
-				console.log("mainLoad", mainLoad);
+				$("#main-content").html("");
 				$("body").removeClass("modal-open")
 		        $('.modal-backdrop').remove();
-			});
+
 		},
 
 		findMovies: function() {
@@ -38,29 +38,11 @@
 
 		myAddedMovies: function() {
 			console.log("whatever");
-			require(["hbs!../templates/afterAdded"], function (add){
-				$("#main-content").append(add);
-				$(".add-button").hide();
-				$(".watch-button").show();
-			});
+
+			$(".add-button").hide();
+			$(".watch-button").show();
+			$("#links").show();
 		}, 
-
-		mySearchedMovies: function() {
-			console.log("searched");
-			require(["hbs!../templates/movieDataTemplate"], function (add){
-				$("#main-content").append(add);
-				$(".add-button").hide();
-				$(".watch-button").show();
-				$("#myModal3").modal("hide");
-			});
-		},
-
-		loadNavbar: function () {
-			console.log("something is working")
-			require(["hbs!../templates/navBar"], function (navigation) {
-				$("#main-content").html(navigation);
-			});
-		}
 	};
 });
 

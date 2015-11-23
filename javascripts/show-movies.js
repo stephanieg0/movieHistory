@@ -88,7 +88,7 @@ return {
             // Hide add button
             $(".add-button").hide();
             // Stars hidden by default
-        }
+        });
 	}
 }
 });

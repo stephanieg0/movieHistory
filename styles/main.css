@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #nav-bar {
   border: 1px solid black; }
 
@@ -32,8 +33,7 @@ body::after {
   float: left; }
 
 h1 {
-  text-align: center;
-  color: #fff; }
+  text-align: center; }
 
 /*# sourceMappingURL=main.css.map */
 
@@ -95,3 +95,8 @@ h1 {
   display: none;
 }
 
+=======
+
+
+/*# sourceMappingURL=main.css.map */
+>>>>>>> 8afde9ac21a701b78febede63acfb89f41d38571

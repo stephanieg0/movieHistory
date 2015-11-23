@@ -19,8 +19,6 @@ define(function(require){
 				.done(function(data){
 					console.log("data", data);
 					// Sending poster back
-					// data.poster = "https://movie-history-app.firebaseio.com/users/" + uuid + "/movies" + movieInput + poster;
-					//resolving promise
 					deferred.resolve(data);
 
 					// console.log("data", data);
