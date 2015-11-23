@@ -53,7 +53,7 @@
 				$(".watch-button").show();
 				$("#myModal3").modal("hide");
 			});
-		}, 
+		},
 
 		loadNavbar: function () {
 			console.log("something is working")

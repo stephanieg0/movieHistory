@@ -42,40 +42,64 @@ define(function(require) {
       });
     });
 
-  //Add button will add movie to users account, default is unwatched
-    // $("body").on('click', "#add", function(){
-    $("body").on('click', ".add-button", function(){
-      // Do stuff
-      // Will set the watched key to false
-    });
-
-  //Unwatched will show unwatched movies 
-    // $("body").on('click', "#unwatched", function(){
-      // Do stuff
-    // });
+  // Unwatched will show unwatched movies 
+  $("#unwatched").click(function(){
+      // Setting variable for later use
+      var watched;
+      // Ajax call to get firebase movie objects
+      showMovies.showAllMovies()
+      .then(function(data){
+          watched = data.watched;
+          $.each(users, function(key, value){
+            if (watched === false)
+              showMovies.watchedMovies();
+          })
+      });
+  });
 
   //Watched will show watched movies 
-    // $("body").on('click', "#watched", function(){
-      // Do stuff
-      // Will set the watched key to true
-    // });
+  $("#watched").click(function(){
+      // Setting variable for later use
+      var watched;
+      // Ajax call to get firebase movie objects
+      showMovies.showAllMovies()
+        // Resolving Promise
+        .then(function(data){
+          watched = data.watched;
+          $.each(users, function(key, value){
+            if (watched === true)
+              showMovies.watchedMovies();
+          })
+      });
+  });      
 
   // All button will show all movies on user profile
   $("#all").click(function(){
-      showMovies.showAllMovies();
-
-  })
+      // Setting variable for later use
+      var watched;
+      // Ajax call to get firebase movie objects
+      showMovies.showAllMovies()
+        // Resolving Promise
+        .then(function(data){
+          showMovies.allMovies()
+        })
+        .fail(function(){
+        alert("Error loading movies");  
+        });  
+  });
 
 
   // Find movies button
   $("body").on("click", "#find-movies", function(){
           dom.findMovies();
+
     });
   // Search My movies button
   $("body").on("click", "#search-movies", function(){
           // Displaying template to DOM
           dom.findMyMovies();
     });
+
 
   // Logging out
   $("body").on('click', "#logout", function() {
@@ -90,10 +114,12 @@ define(function(require) {
   // User clicking add to have movie added to their profile
     $("body").on('click', ".add-button", function() {
       console.log("add click");
+
       add.addInfo()
       // .then(function(){
       //   console.log("user logged in");
       // dom.myAddedMovies();
+
 
       //Do stuff
       // })
