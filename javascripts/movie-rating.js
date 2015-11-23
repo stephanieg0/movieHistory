@@ -8,6 +8,8 @@ define(function(require){
 	//show stars after the watch button is clicked.
 	$("body").on("click", ".watch-button", function(){
 		console.log("watch button works, and shows stars");
+
+		$(".watch-button").hide();
 		$(".star-container").show();
 
 		//gets the value of the selected star
