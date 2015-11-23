@@ -70,23 +70,27 @@ define(function(require) {
 
   // Logging out
   $("body").on('click', "#logout", function() {
+    console.log("what is this");
     // $("#logout").click(function(){
       console.log("click log out");
       ref.unauth();
+      dom.loadSplash();
       console.log("you have logged out");
     });
 
   // User clicking add to have movie added to their profile
     $("body").on('click', ".add-button", function() {
       console.log("add click");
-      add.addInfo().then(function(){
-        console.log("user logged in");
+      add.addInfo()
+      // .then(function(){
+      //   console.log("user logged in");
       // dom.myAddedMovies();
+
       //Do stuff
-      })
-      .fail(function(){
-        alert("Please make an account");  
-      });
+      // })
+      // .fail(function(){
+      //   alert("Please make an account");  
+      // });
     });  
 
 
