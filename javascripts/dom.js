@@ -1,4 +1,4 @@
-define(function (require) {
+	define(function (require) {
 
 	return {
 
@@ -42,6 +42,16 @@ define(function (require) {
 				$("#main-content").append(add);
 				$(".add-button").hide();
 				$(".watch-button").show();
+			});
+		}, 
+
+		mySearchedMovies: function() {
+			console.log("searched");
+			require(["hbs!../templates/movieDataTemplate"], function (add){
+				$("#main-content").append(add);
+				$(".add-button").hide();
+				$(".watch-button").show();
+				$("#myModal3").modal("hide");
 			});
 		}, 
 
