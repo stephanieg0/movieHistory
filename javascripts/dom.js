@@ -38,7 +38,7 @@ define(function (require) {
 
 		myAddedMovies: function() {
 			console.log("whatever");
-			require(["hbs!../templates/afterAdded"], function (add){
+			require(["hbs!../templates/movieDataTemplate"], function (add){
 				$("#main-content").append(add);
 				$(".add-button").hide();
 				$(".watch-button").show();
