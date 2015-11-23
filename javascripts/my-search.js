@@ -34,8 +34,9 @@ define(function(require){
 			// Getting poster
 			poster = data[movieInput].poster;
 			console.log("poster", poster);
-			// If 
+			// If input value equals movie title
 			if (movieInput === title) {
+				// If watcehd equals false
 				if (watched === false) {
 					movieDom.movieForm(data[movieInput])
 					$(".watch-button").show();
