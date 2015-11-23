@@ -39,7 +39,7 @@ define(function(require){
 		  		"watched": false,
 		  		"poster": "http://img.omdbapi.com/?i=" + movieObject.imdbID + "&apikey=8513e0a1"
 
-			}, function(error, userData) {
+			}, function(error) {
 			  if (error) {
 			  	// Error psoting to Firebase
 			  	alert(error);
