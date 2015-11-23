@@ -3,10 +3,10 @@ define(function(require) {
   var create = require("user-create");
   var login = require("user-login");
   var add = require("add");
+  var dom = require("dom");
 
   // Ref to firebase
   var ref = new Firebase("https://movie-history-app.firebaseio.com/");
-  var dom = require("dom");
 
   //If the promise resolved, the user will be able to move onto the form.
   //Shows form after user creates new account
@@ -58,10 +58,15 @@ define(function(require) {
       // Do stuff
       // Will set the watched key to true
     // });
-
+  // Find movies button
   $("body").on("click", "#find-movies", function(){
           dom.findMovies();
-    })
+    });
+  // Search My movies button
+  $("body").on("click", "#search-movies", function(){
+          // Displaying template to DOM
+          dom.findMyMovies();
+    });
 
   // Logging out
   $("body").on('click', "#logout", function() {
@@ -76,13 +81,20 @@ define(function(require) {
   // User clicking add to have movie added to their profile
     $("body").on('click', ".add-button", function() {
       console.log("add click");
+<<<<<<< HEAD
       add.addInfo().then(function(){
         console.log("user logged in");
+=======
+      add.addInfo()
+      // .then(function(){
+      //   console.log("user logged in");
+      // dom.myAddedMovies();
+>>>>>>> 2eea52446b83c8dc145e2ee41d252e1d5fcc8e06
       //Do stuff
-      })
-      .fail(function(){
-        alert("Please make an account");  
-      });
+      // })
+      // .fail(function(){
+      //   alert("Please make an account");  
+      // });
     });  
 
 

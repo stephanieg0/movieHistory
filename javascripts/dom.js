@@ -28,6 +28,14 @@ define(function (require) {
 			});
 		},
 
+		findMyMovies: function() {
+			console.log("hello");
+			require(["hbs!../templates/mySearch"], function (movieMyFind){
+				$("#main-content").html(movieMyFind);
+				$("#myModal3").modal("show");
+			});
+		},
+
 		myAddedMovies: function() {
 			console.log("whatever");
 			require(["hbs!../templates/afterAdded"], function (add){
