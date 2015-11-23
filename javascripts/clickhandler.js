@@ -41,13 +41,6 @@ define(function(require) {
       });
     });
 
-  //Add button will add movie to users account, default is unwatched
-    // $("body").on('click', "#add", function(){
-    $("body").on('click', ".add-button", function(){
-      // Do stuff
-      // Will set the watched key to false
-    });
-
   //Unwatched will show unwatched movies 
     // $("body").on('click', "#unwatched", function(){
       // Do stuff

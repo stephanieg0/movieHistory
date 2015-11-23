@@ -1,4 +1,5 @@
 define(function (require) {
+	var cat = 0;
 
 	return {
 
@@ -38,12 +39,9 @@ define(function (require) {
 
 		myAddedMovies: function() {
 			console.log("whatever");
-			require(["hbs!../templates/movieDataTemplate"], function (add){
-				$("#main-content").append(add);
-				$(".add-button").hide();
-				$(".watch-button").show();
-				$("#links").show();
-			});
+			$(".add-button").hide();
+			$(".watch-button").show();
+			$("#links").show();
 		}, 
 
 		loadNavbar: function () {
