@@ -10,6 +10,7 @@ define(function(require) {
 		      	$("body").removeClass("modal-open");
 		        $('.modal-backdrop').remove();
 		        $(".watch-button").hide();
+		        $("#links").hide();
 		    });
 	    console.log("handle bars form is linked");
 

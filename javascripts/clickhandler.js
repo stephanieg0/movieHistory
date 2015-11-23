@@ -61,6 +61,7 @@ define(function(require) {
 
   $("body").on("click", "#find-movies", function(){
           dom.findMovies();
+          dom.addNavbar();
     })
 
   // Logging out
