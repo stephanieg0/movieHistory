@@ -4,6 +4,7 @@ define(function(require) {
   var login = require("user-login");
   var add = require("add");
   var dom = require("dom");
+  var showMovies = require("show-movies");
 
   // Ref to firebase
   var ref = new Firebase("https://movie-history-app.firebaseio.com/");
@@ -58,6 +59,14 @@ define(function(require) {
       // Do stuff
       // Will set the watched key to true
     // });
+
+  // All button will show all movies on user profile
+  $("#all").click(function(){
+      showMovies.showAllMovies();
+
+  })
+
+
   // Find movies button
   $("body").on("click", "#find-movies", function(){
           dom.findMovies();
