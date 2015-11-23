@@ -12,12 +12,10 @@ define(function (require) {
 			 });
 		},
 		loadMain: function () {
-			require(["hbs!../templates/mainDefault"], function (mainLoad) {
-				$("#main-content").html(mainLoad());
-				console.log("mainLoad", mainLoad);
+				$("#main-content").html("");
 				$("body").removeClass("modal-open")
 		        $('.modal-backdrop').remove();
-			});
+
 		},
 
 		findMovies: function() {
@@ -42,22 +40,9 @@ define(function (require) {
 				$("#main-content").append(add);
 				$(".add-button").hide();
 				$(".watch-button").show();
-				$("#links").show();
 			});
 		}, 
 
-		loadNavbar: function () {
-			console.log("something is working")
-			require(["hbs!../templates/navBar"], function (navigation) {
-				$("#main-content").html(navigation);
-			});
-		},
-
-		addNavbar: function () {
-			require(["hbs!../templates/navBar"], function (nav) {
-				$("#main-content").append(nav);
-			});
-		}
 	};
 });
 

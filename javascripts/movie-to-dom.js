@@ -11,6 +11,7 @@ define(function(require) {
 		        $('.modal-backdrop').remove();
 		        $(".watch-button").hide();
 		        $("#links").hide();
+		        $("#inputTitle").val("");
 		    });
 	    console.log("handle bars form is linked");
 

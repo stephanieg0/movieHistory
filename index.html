@@ -2,24 +2,34 @@
 
 <html lang="en">
 
-	<head>
-    	<meta charset="utf-8">
-	    <title>NSS Movie History</title>
-		<link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styles/main.css">
-	</head>
-	<body>
+<head>
+  <meta charset="utf-8">
+  <title>What Up, Pup?</title>
 
-		<div id="main-content"></div>
-		
-		<div id="movie-poster"></div>
+  <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
 
+<body>
+<nav id="nav-bar">
+	<ul class="nav nav-tabs">
+  		<li id="searchBox"><input id="inputTitle" type="search" placeholder="Search Movies..." default="hide"></li>
+  		<li role="presentation" id="logout"><a href="#">Logout</a></li>
+	</ul>
+</nav>
 
+<a href="#">All</a>|<a href="#">Unwatched</a>|<a href="#">Watched</a>|<a href="#">Favorites</a>
 
-		<script data-main="javascripts/entry" src="lib/bower_components/requirejs/require.js"></script>
-	   <script src="./lib/bower_components/jquery/dist/jquery.min.js"></script>
-	   <script src="./lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-   	</body>
+<div id="main-content">
+
+</div>
+
+<div id="movie-poster"></div>
+
+  <script data-main="javascripts/entry" src="./lib/bower_components/requirejs/require.js"></script>
+  <script src="./lib/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="./lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</body>
 
 </html>
-
