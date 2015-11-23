@@ -18,13 +18,16 @@ define(function(require){
 			//firebase reference to upload to specific url
 			var uuid = gs.getUid();
 			console.log("uuid", uuid);
-			
-			var ref = new Firebase("https://movie-history-app.firebaseio.com/users/" + uuid + "/");
-			// var movieKey = ref.child("ref");
-			// var path = movieKey.toString();
-			// console.log("path", path);
-			//pushing the key to firebase
-			ref.push({
+			var movieObject = gs.getData();
+      		console.log("movieObject", movieObject);
+      		// Getting movie title from movie object
+      		var title = movieObject.Title;
+      		console.log("title", title);
+
+			//specific path to go to firebase
+			var ref = new Firebase("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies/" + title);
+			//updating the star value in firebase
+			ref.update({
 				"stars": currentStars
 				}, function(error, userData){
 					if (error) {
@@ -37,10 +40,6 @@ define(function(require){
 
 
 		});
-
-
-
-
 
 
 });//end of define
