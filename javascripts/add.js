@@ -25,12 +25,12 @@ define(function(require){
       		var actors = movieObject.Actors;
       		console.log("actors", actors);
 			//get a reference to our Firebase app
-			var ref = new Firebase("https://movie-history-app.firebaseio.com/users/"+ uuid);
+			var ref = new Firebase("https://movie-history-app.firebaseio.com/users/"+ uuid +"/movies/" + title);
       		console.log("uuid", uuid);
       		//moving to next page
       		dom.myAddedMovies();
       		// Pushing object to Firebase
-			ref.push({
+			ref.set({
 
 		  		"title": title,
 		  		"year": year,

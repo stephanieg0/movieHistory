@@ -1,28 +1,30 @@
 define(function(require){
 	var $ = require("jquery");
 	var Q = require("q");
+	var gs = require("get-set");
 	var searchMovie = ("search-movie");
 
 
 	//Getting movie json data from omdbapi.com/being called from my-search
 	return {
 		
-		//ajax call
-		movies: function() {
+		//ajax call from my-search
+		myMovies: function() {
 			var deferred = Q.defer();
-			// Getting value for input
-			var movieInput = $("#inputTitle").val();
-			$.ajax({url: "http://www.omdbapi.com/?t=" + movieInput + "&y=&plot=short&r=json",
+			// Getting unique key
+			var uuid = gs.getUid();
+			$.ajax({url: "https://movie-history-app.firebaseio.com/users/" + uuid + "/movies.json",
 				method: "GET",
 				})
 				.done(function(data){
+					console.log("data", data);
 					// Sending poster back
-					data.poster = "http://img.omdbapi.com/?i=" + data.imdbID + "&apikey=8513e0a1";
+					// data.poster = "https://movie-history-app.firebaseio.com/users/" + uuid + "/movies" + movieInput + poster;
 					//resolving promise
 					deferred.resolve(data);
-					// deferred.resolve("http://www.omdbapi.com/?t=" + movieInput + "&y=&plot=short&r=json");
-					console.log("data", data);
-					console.log("data poster", data.poster);
+
+					// console.log("data", data);
+					// console.log("data poster", data.poster);
 				})
 				.fail(function(){
 					console.log("error");
@@ -34,4 +36,3 @@ define(function(require){
 	};
 
 });//end of define
-
