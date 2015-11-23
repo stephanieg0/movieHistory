@@ -42,6 +42,7 @@ define(function (require) {
 				$("#main-content").append(add);
 				$(".add-button").hide();
 				$(".watch-button").show();
+				$("#links").show();
 			});
 		}, 
 
@@ -49,6 +50,12 @@ define(function (require) {
 			console.log("something is working")
 			require(["hbs!../templates/navBar"], function (navigation) {
 				$("#main-content").html(navigation);
+			});
+		},
+
+		addNavbar: function () {
+			require(["hbs!../templates/navBar"], function (nav) {
+				$("#main-content").append(nav);
 			});
 		}
 	};

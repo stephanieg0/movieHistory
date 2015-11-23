@@ -61,12 +61,17 @@ define(function(require) {
   // Find movies button
   $("body").on("click", "#find-movies", function(){
           dom.findMovies();
+<<<<<<< HEAD
     });
   // Search My movies button
   $("body").on("click", "#search-movies", function(){
           // Displaying template to DOM
           dom.findMyMovies();
     });
+=======
+          dom.addNavbar();
+    })
+>>>>>>> f50ea91056c373793b2953a1c1f48aad273d54c1
 
   // Logging out
   $("body").on('click', "#logout", function() {
@@ -81,15 +86,10 @@ define(function(require) {
   // User clicking add to have movie added to their profile
     $("body").on('click', ".add-button", function() {
       console.log("add click");
-<<<<<<< HEAD
       add.addInfo().then(function(){
         console.log("user logged in");
-=======
-      add.addInfo()
       // .then(function(){
       //   console.log("user logged in");
-      // dom.myAddedMovies();
->>>>>>> 2eea52446b83c8dc145e2ee41d252e1d5fcc8e06
       //Do stuff
       // })
       // .fail(function(){
