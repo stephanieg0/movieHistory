@@ -58,10 +58,15 @@ define(function(require) {
       // Do stuff
       // Will set the watched key to true
     // });
-
+  // Find movies button
   $("body").on("click", "#find-movies", function(){
           dom.findMovies();
-    })
+    });
+  // Search My movies button
+  $("body").on("click", "#search-movies", function(){
+          // Displaying template to DOM
+          dom.findMyMovies();
+    });
 
   // Logging out
   $("body").on('click', "#logout", function() {
