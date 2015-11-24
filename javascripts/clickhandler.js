@@ -81,6 +81,5 @@ define(function(require) {
 
 
 });
-});
 
 

@@ -22,6 +22,7 @@ requirejs(
 
   //the dependencies get passed as arguments into the function.
   function(dependencies, userCreate, userLogin, movieData, searchMovie, movieDom, dom, clickhandler, rating, mySearch) {
+    // $("#navigation").hide();
     dom.loadSplash();
 
 });//end of require
