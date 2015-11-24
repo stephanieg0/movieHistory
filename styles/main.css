@@ -37,7 +37,6 @@ h1 {
 /*# sourceMappingURL=main.css.map */
 
 
-
 /*Stars */
 .star-rating {
   font-size: 0;
@@ -95,4 +94,8 @@ h1 {
 }
 
 /*# sourceMappingURL=main.css.map */
+
+.col-md-3 {
+	display: inline-block;
+}
 

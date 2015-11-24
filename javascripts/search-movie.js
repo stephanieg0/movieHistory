@@ -15,9 +15,10 @@ define(function(require){
 			movieDom.movieForm(data);
 			// Sending movie object to setter to be able to access later
 			gs.setData(data);
-		})
-	};
+
+			})
+		};
 	});
 
 
-	});
+});//end of define
