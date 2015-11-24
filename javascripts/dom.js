@@ -1,3 +1,4 @@
+
 define(function (require) {
 	var cat = 0;
 
@@ -36,11 +37,11 @@ define(function (require) {
 
 		myAddedMovies: function() {
 			console.log("whatever");
+
 			$(".add-button").hide();
 			$(".watch-button").show();
 			$("#links").show();
 		}, 
-
 	};
 });
 

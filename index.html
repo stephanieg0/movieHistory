@@ -12,21 +12,22 @@
 </head>
 
 <body>
-<div id="navigation" class="hidden">
-	<nav id="nav-bar">
-		<ul class="nav nav-tabs">
-	  		<li id="searchBox"><input id="inputTitle" type="search" placeholder="Search Movies..."></li>
-	  		<li role="presentation" id="logout"><a href="#">Logout</a></li>
-		</ul>
-	</nav>
 
-	<a href="#">All</a>|<a href="#">Unwatched</a>|<a href="#">Watched</a>|<a href="#">Favorites</a>
-</div>
-<div id="main-content">
+  <nav id="nav-bar">
+  	<ul class="nav nav-tabs">
+    		<li id="searchBox"><input id="inputTitle" type="search" placeholder="Search Movies..."></li>
+    		<li role="presentation" id="logout"><a href="#">Logout</a></li>
+  	</ul>
+  </nav>
 
-</div>
+  <a id="all" href="#">All</a>|<a id="unwatched" href="#">Unwatched</a>|<a id="watched" href="#">Watched</a>|<a id="favorites" href="#">Favorites</a>
 
-<div id="movie-poster"></div>
+
+  <div id="main-content">
+
+  </div>
+
+  <div id="movie-poster"></div>
 
   <script data-main="javascripts/entry" src="./lib/bower_components/requirejs/require.js"></script>
   <script src="./lib/bower_components/jquery/dist/jquery.min.js"></script>

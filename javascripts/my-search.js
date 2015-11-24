@@ -34,16 +34,17 @@ define(function(require){
 			// Getting poster
 			poster = data[movieInput].poster;
 			console.log("poster", poster);
-			// If 
+			// If input value equals movie title
 			if (movieInput === title) {
+				// If watcehd equals false
 				if (watched === false) {
-					movieDom.movieForm(data[movieInput])
-					$(".watch-button").show();
-					$("#myModal3").hide();
+					console.log("is this working?")
+					dom.mySearchedMovies(data[movieInput])
+					
 				} else {
-						movieDom.movieForm(data[movieInput])
-						$(".watch-button").hide();
-						$(".add-button").hide();
+						dom.mySearchedMovies(data[movieInput])
+						// $(".watch-button").hide();
+						// $(".add-button").hide();
 						$("#myModal3").hide();
 				  }
 			} else {
