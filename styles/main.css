@@ -3,3 +3,7 @@ body {
   color: #333; }
 
 /*# sourceMappingURL=main.css.map */
+
+.col-md-3 {
+	display: inline-block;
+}

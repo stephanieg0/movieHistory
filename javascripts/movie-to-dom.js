@@ -4,11 +4,12 @@ define(function(require) {
 
  return {
   	movieForm: function(data) {
+  		console.log("movieForm data", data);
   		$("#movie-poster").html('');
-    require(['hbs!../templates/movieDataTemplate'], function (formTemplate) {
-      $("#movie-poster").html(formTemplate(data));
-    });
-    console.log("handle bars form is linked");
+	    require(['hbs!../templates/movieDataTemplate'], function (formTemplate) {
+	      $("#movie-poster").html(formTemplate(data));
+	    });
+	    console.log("handle bars form is linked");
 
   }
 }

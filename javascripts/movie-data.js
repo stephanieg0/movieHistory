@@ -10,18 +10,19 @@ define(function(require){
 		//ajax call
 		movies: function() {
 			var deferred = Q.defer();
-			var movieInput = $("#inputTitle").val();
-			$.ajax({url: "http://www.omdbapi.com/?t=" + movieInput + "&y=&plot=short&r=json",
-				method: "GET",
+			var movieInput = $("#inputTitle").val().toLowerCase();
+			
+			console.log("movie input", movieInput);
+			$.ajax({url: "http://www.omdbapi.com/?s=" + movieInput + "&type=movie",
+				method: "GET"
 				})
 				.done(function(data){
 
-					data.poster = "http://img.omdbapi.com/?i=" + data.imdbID + "&apikey=8513e0a1";
+					console.log("search", "http://www.omdbapi.com/?s=" + movieInput + "&type=movie");
+
 					//resolving promise
 					deferred.resolve(data);
-					// deferred.resolve("http://www.omdbapi.com/?t=" + movieInput + "&y=&plot=short&r=json");
-					console.log("data", data);
-					console.log("data poster", data.poster);
+					
 				})
 				.fail(function(){
 					console.log("error");
