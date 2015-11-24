@@ -70,12 +70,18 @@ define(function(require) {
     });
 
   // User clicking add to have movie added to their profile
-    $(this).on('click', ".add-button", function() {
-      console.log("add click");
+    $("body").on("click", ".add-button", function() {
+      console.log("workinggggggggggg")
+
+      $(this).on("click", function(){
+        console.log("add click");
+      })
+
+
       add.addInfo().then(function(){
-        console.log("user logged in");
-      // dom.myAddedMovies();
-      //Do stuff
+        console.log("user logged in!!!!");
+        // dom.myAddedMovies();
+        //Do stuff
       })
       .fail(function(){
         alert("Please make an account");  

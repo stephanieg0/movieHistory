@@ -25,12 +25,9 @@ define(function (require) {
 
 		myAddedMovies: function() {
 			console.log("whatever");
-			require(["hbs!../templates/afterAdded"], function (add){
-				$("#main-content").append(add);
+				$("#main-content").append();
 				$(".add-button").hide();
 				$(".watch-button").show();
-				$("#links").show();
-			});
 		}, 
 	};
 });
