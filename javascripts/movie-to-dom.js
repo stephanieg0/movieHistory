@@ -9,8 +9,6 @@ define(function(require) {
 		    require(['hbs!../templates/movieDataTemplate'], function (formTemplate) {
 		    	console.log("what is going on", data)
 		      	$("#movie-poster").html(formTemplate(data));
-		      	$("body").removeClass("modal-open");
-		        $('.modal-backdrop').remove();
 		        $(".watch-button").hide();
 		        $("#links").hide();
 		        $("#inputTitle").val("");

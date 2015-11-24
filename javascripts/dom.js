@@ -14,9 +14,7 @@ define(function (require) {
 		},
 		loadMain: function () {
 				$("#main-content").html("");
-				$("body").removeClass("modal-open")
-		        $('.modal-backdrop').remove();
-
+				$("div").removeClass("hidden");
 		},
 
 		findMovies: function() {
@@ -24,6 +22,7 @@ define(function (require) {
 			require(["hbs!../templates/findModal"], function (movieFind){
 				$("#main-content").html(movieFind);
 				$("#myModal2").modal("show");
+
 			});
 		},
 

@@ -93,6 +93,9 @@ h1 {
   display: none;
 }
 
+.hidden {
+  display: hidden; }
+
 /*# sourceMappingURL=main.css.map */
 
 .col-md-3 {
