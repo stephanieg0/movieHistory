@@ -5,9 +5,13 @@ define(function(require) {
   var add = require("add");
   var dom = require("dom");
   var showMovies = require("show-movies");
+  var gs = require("get-set");
 
   // Ref to firebase
   var ref = new Firebase("https://movie-history-app.firebaseio.com/");
+  // Declaring variable for later use
+  var uuid;
+
 
   //If the promise resolved, the user will be able to move onto the form.
   //Shows form after user creates new account
@@ -41,50 +45,56 @@ define(function(require) {
 
   // Unwatched will show unwatched movies 
   $("#unwatched").click(function(){
-      // Setting variable for later use
-      var watched;
-      // Ajax call to get firebase movie objects
-      showMovies.showAllMovies()
-      .then(function(data){
-          watched = data.watched;
-          $.each(users, function(key, value){
-            if (watched === false)
-              showMovies.watchedMovies();
-          })
-      });
+    // Getting user unique ID
+    uuid = gs.getUid();
+    // Referencing Fireabse
+    var ref = new Firebase ("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
+
+    ref.orderByChild("watched").equalTo(false).on("child_added", function(snapshot) {
+      console.log(snapshot.key());
+      showMovies.unwatchedMovies();
+    });
   });
 
   //Watched will show watched movies 
   $("#watched").click(function(){
-      // Setting variable for later use
-      var watched;
-      // Ajax call to get firebase movie objects
-      showMovies.showAllMovies()
-        // Resolving Promise
-        .then(function(data){
-          watched = data.watched;
-          $.each(users, function(key, value){
-            if (watched === true)
-              showMovies.watchedMovies();
-          })
-      });
+    // Getting user unique ID
+    uuid = gs.getUid();
+    // Referencing Fireabse
+    var ref = new Firebase ("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
+
+    ref.orderByChild("watched").equalTo(true).on("child_added", function(snapshot) {
+      console.log(snapshot.key());
+      showMovies.watchedMovies();
+    });
   });      
 
   // All button will show all movies on user profile
   $("#all").click(function(){
-      // Setting variable for later use
-      var watched;
-      // Ajax call to get firebase movie objects
-      showMovies.showAllMovies()
-        // Resolving Promise
-        .then(function(data){
-          showMovies.allMovies()
-        })
-        .fail(function(){
-        alert("Error loading movies");  
-        });  
+      // Getting user unique ID
+      uuid = gs.getUid();
+      // Referencing Fireabse
+      var ref = new Firebase ("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
+
+      ref.orderByChild("watched").on("child_added", function(snapshot) {
+      console.log(snapshot.key());
+      showMovies.allMovies();
+    });
   });
 
+// All button will show all movies on user profile
+  $("#favorites").click(function(){
+    
+      // Getting user unique ID
+      uuid = gs.getUid();
+      // Referencing Fireabse
+      var ref = new Firebase ("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
+
+      ref.orderByChild("stars").equalTo("5").on("child_added", function(snapshot) {
+      console.log(snapshot.key());
+      showMovies.allMovies();
+    });
+  });
 
   // Find movies button
   $("body").on("click", "#find-movies", function(){
