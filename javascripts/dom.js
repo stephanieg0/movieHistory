@@ -15,8 +15,7 @@ define(function (require) {
 			require(["hbs!../templates/mainDefault"], function (mainLoad) {
 				$("#main-content").html(mainLoad);
 				console.log("mainLoad", mainLoad);
-				$("body").removeClass("modal-open")
-		        $('.modal-backdrop').remove();
+				$("body").removeClass("hidden")
 			});
 		}
 	};
