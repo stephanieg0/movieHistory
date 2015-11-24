@@ -12,19 +12,14 @@ define(function (require) {
 			 });
 		},
 		loadMain: function () {
-			require(["hbs!../templates/mainDefault"], function (mainLoad) {
-				$("#main-content").html(mainLoad());
-				console.log("mainLoad", mainLoad);
-				$("body").removeClass("modal-open")
-		        $('.modal-backdrop').remove();
-			});
+				$("#main-content").html("");
+				$("div").removeClass("hidden");
 		},
 
 		findMovies: function() {
 			console.log("hello");
 			require(["hbs!../templates/findModal"], function (movieFind){
 				$("#main-content").html(movieFind);
-				$("#myModal2").modal("show");
 			});
 		},
 
@@ -37,19 +32,6 @@ define(function (require) {
 				$("#links").show();
 			});
 		}, 
-
-		loadNavbar: function () {
-			console.log("something is working")
-			require(["hbs!../templates/navBar"], function (navigation) {
-				$("#main-content").html(navigation);
-			});
-		},
-
-		addNavbar: function () {
-			require(["hbs!../templates/navBar"], function (nav) {
-				$("#main-content").append(nav);
-			});
-		}
 	};
 });
 

@@ -43,10 +43,7 @@ define(function(require) {
 
   //Add button will add movie to users account, default is unwatched
     // $("body").on('click', "#add", function(){
-    $("body").on('click', ".add-button", function(){
-      // Do stuff
-      // Will set the watched key to false
-    });
+
 
   //Unwatched will show unwatched movies 
     // $("body").on('click', "#unwatched", function(){
@@ -73,7 +70,7 @@ define(function(require) {
     });
 
   // User clicking add to have movie added to their profile
-    $("body").on('click', ".add-button", function() {
+    $(this).on('click', ".add-button", function() {
       console.log("add click");
       add.addInfo().then(function(){
         console.log("user logged in");

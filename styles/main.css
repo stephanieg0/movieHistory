@@ -32,7 +32,9 @@ body::after {
   float: left; }
 
 h1 {
-  text-align: center;
-  color: #fff; }
+  text-align: center; }
+
+.hidden {
+  display: hidden; }
 
 /*# sourceMappingURL=main.css.map */
