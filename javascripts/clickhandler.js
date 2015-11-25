@@ -125,7 +125,6 @@ define(function(require) {
       console.log("isss this working???", imdb);
       console.log("add click");
       add.addInfo(imdb);
-      console.log("???????????????", add.addInfo(imdb));
     });  
 
 

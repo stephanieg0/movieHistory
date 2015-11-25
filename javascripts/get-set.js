@@ -4,7 +4,7 @@ define(function(require){
 
   var deferred = Q.defer();
   var userID = null;
-  var userMovieData = {};
+  var userMovieData = null;
 
   //Getters and Setterss for UID and movie object
   return {
