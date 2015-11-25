@@ -16,17 +16,18 @@ define(function(require){
 		//if email is not the correct format, promise will be rejected.
       	//else the promise will be resolved.
       	userCreate: function() {
-			console.log("button works");
+			console.log("button works");	
 			ref.createUser({
 		  		email    : $("#email").val(),
 		  		password : $("#password").val()
 			}, function(error, userData) {
+				console.log("yoo")
       			var ref = new Firebase("https://movie-history-app.firebaseio.com/users/" + userData.uid);
+      			console.log("???????", userData);
 			  if (error) {
 			  	alert(error);
 			    console.log("Error creating user:", error);
 			  } else {
-			  	dom.loadMain();
         		console.log("inside");
         		ref.set({
           			"user_uid": userData.uid

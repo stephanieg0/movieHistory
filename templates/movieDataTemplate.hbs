@@ -3,8 +3,8 @@
 <div class="col-md-3">
 	<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437">
 	<!--Add Button-->
-	<div><button type="button" class="btn btn-default add-button">Add</button></div>
-	<div><button type="button" class="btn btn-default watch-button">Watch</button></div>		
+	<div><button type="button" class="btn btn-default add-button" imdb="{{imdbID}}">Add</button>
+	<button type="button" class="btn btn-default watch-button">Watch</button></div>		
 	 <!--Stars Rating-->
 	 <!--stars are hidden until watched button is clicked-->
 	<div class="star-container" {{@key}}>

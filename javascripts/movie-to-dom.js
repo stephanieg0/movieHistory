@@ -10,7 +10,6 @@ define(function(require) {
 		    	console.log("what is going on", data)
 		      	$("#movie-poster").html(formTemplate(data));
 		        $(".watch-button").hide();
-		        $("#links").hide();
 		        $("#inputTitle").val("");
 		    	});
 

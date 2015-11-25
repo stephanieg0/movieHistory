@@ -6,7 +6,7 @@ define(function(require) {
   var dom = require("dom");
   var showMovies = require("show-movies");
   var gs = require("get-set");
-
+  
   // Ref to firebase
   var ref = new Firebase("https://movie-history-app.firebaseio.com/");
   // Declaring variable for later use
@@ -18,12 +18,10 @@ define(function(require) {
   $("body").on('click', "#register", function() {
       console.log("register click");
       //promise from user-create.js
-      create.userCreate().then(function(){
-        console.log("user created");
-      })
-      .fail(function(){
-        alert("error, the specified email is invalid");      
-      });
+      create.userCreate()
+      console.log("user created");
+      dom.loadMain();
+
   });
 
   //Shows user's profile after user logs in
@@ -119,8 +117,15 @@ define(function(require) {
 
   // User clicking add to have movie added to their profile
     $("body").on('click', ".add-button", function() {
+      var imdb = $(this).attr("imdb");
+      $(this).hide();
+      console.log($(this))
+      $(this).siblings(".watch-button").show()
+
+      console.log("isss this working???", imdb);
       console.log("add click");
-      add.addInfo()
+      add.addInfo(imdb);
+      console.log("???????????????", add.addInfo(imdb));
     });  
 
 
