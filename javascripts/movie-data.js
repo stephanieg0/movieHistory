@@ -15,12 +15,12 @@ define(function(require){
 			var movieInput = $("#inputTitle").val().toLowerCase();
 			
 			
-			console.log("movie input", movieInput);
+			// console.log("movie input", movieInput);
 			$.ajax({url: "http://www.omdbapi.com/?s=" + movieInput + "&type=movie",
 				method: "GET"
 				})
 				.done(function(data){
-					console.log("data", data);
+					console.log("movie-data", data);
 						//resolving promise
 						deferred.resolve(data);
 

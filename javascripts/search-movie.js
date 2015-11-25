@@ -10,28 +10,26 @@ define(function(require){
 	$("#searchBox").keypress(function(){
 		if(event.which == 13){
 			console.log("click is working");
-			//call firebase()
-			// movieDataFirebase.moviesFirebase()
-			// .then(function (firebaseData){
-			// 	console.log("first promise kept");
-			// 	movieDom.movieForm(firebaseData);
-				movieDataFirebase.moviesFirebase()
-				.then(function (firebaseData){
-					movieDom.movieForm(firebaseData);
+			//calling first promise to bring firebase data
+			movieDataFirebase.moviesFirebase()
+			.then(function (firebaseData){
+				// console.log("first promise");
+				movieDom.movieForm(firebaseData);
+				// gs.setData(data);
+			})
+			//calling Second promise to bring API
+			.then(function() {
+				movieData.movies()
+				.then(function (data){
+					// console.log("second promise");
+					movieDom.movieForm(data);
+					// Sending movie object to setter to be able to access later
 					gs.setData(data);
+
+					}).fail(function(error){
+						console.log("error");
 				});
-
-				// movieData.movies()
-				// .then(function (data){
-				// 	console.log("second promise kept");
-				// 	movieDom.movieForm(data);
-				// 	// Sending movie object to setter to be able to access later
-				// 	gs.setData(data);
-
-				// 	}).fail(function(error){
-				// 		console.log("error");
-				// });
-			
+			})	
 		};//end of if statement
 	});//end of keypress function
 });//end of define

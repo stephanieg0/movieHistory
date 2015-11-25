@@ -4,14 +4,14 @@ define(function(require) {
 	
 	return {
   		movieForm: function(data) {
-  			//TO use in handlebars helper template
-  			// for (var i = 0; i < data.Search.length; i++){
-	  		// 	if (data.Search[i].Poster !== "N/A") {
+  			//Need to use in handlebars helper template add and if statement to print titles or posters
+  			// for (var i = 0; i < data.Search.length; i++){ --stephanie's notes for now.
+	  		// 	if (data.Search[i].Poster !== "N/A") { --stephanie's notes for now.
 
 	    	require(['hbs!../templates/movieDataTemplate'], function (formTemplate) {
 	    		console.log("movieDataTemplate is running");
 	    	
-		      	$("#movie-poster").html(formTemplate(data));
+		      	$("#movie-poster").append(formTemplate(data));
 		      	console.log("movie-to-dom", data);
 		      	$("body").removeClass("modal-open");
 		        $('.modal-backdrop').remove();
