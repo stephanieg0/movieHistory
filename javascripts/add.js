@@ -22,6 +22,7 @@ define(function(require){
       		// Getting movie title from movie object
       		var title = data.Title;
       		console.log("title", title);
+      		var firebaseKey = title.toLowerCase().replace(/ /g, "_");
       		// Getting movie year from movie object
       		var year = data.Year;
       		console.log("year", year);
@@ -34,7 +35,7 @@ define(function(require){
       		// Getting imdbID from movie movieobject
       		var imdbID = movieObject.imdbID;
 			//get a reference to our Firebase app
-			var ref = new Firebase("https://movie-history-app.firebaseio.com/users/"+ uuid +"/movies/" + title);
+			var ref = new Firebase("https://movie-history-app.firebaseio.com/users/"+ uuid +"/movies/" + firebaseKey);
       		console.log("uuid", uuid);
       		//moving to next page
       		// dom.myAddedMovies();

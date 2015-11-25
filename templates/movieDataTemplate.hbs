@@ -1,8 +1,11 @@
 <!--Movie Poster with buttons and stars-->
 {{#each Search}}
 <div class="col-md-3">
-	{{!-- {{#if Poster}} --}}
-	<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437">
+	{{#if Poster}}
+		<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437">
+	{{else}}
+		<div class="movie-titles">{{Title}}</div>
+	{{/if}}
 	<!--Add Button-->
 	<div><button type="button" class="btn btn-default add-button" imdb="{{imdbID}}">Add</button>
 	<button type="button" class="btn btn-default watch-button">Watch</button></div>		
@@ -18,6 +21,7 @@
 	  </span>
 	</div>
 </div>
+
 {{/each}}
 
 

@@ -12,8 +12,8 @@ define(function(require){
 		moviesFirebase: function () {
 			var deferred = Q.defer();
 			var uuid = gs.getUid();
-			var movieInput = $("#inputTitle").val();
-			// console.log("movie input", movieInput);
+			var movieInput = $("#inputTitle").val().toLowerCase().replace(/ /g, "_");
+			console.log("movie input", movieInput);
 			var movieRef = new Firebase("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
 			// var firebaseData = movieRef.orderByChild("title").equalTo(movieInput);
 			
