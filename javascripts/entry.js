@@ -17,12 +17,11 @@ requirejs.config({
 
 requirejs(
   
-  ["dependencies", "user-create", "user-login", "movie-data", "search-movie", "movie-to-dom", "dom", "clickhandler", "movie-rating", "my-search"], 
+  ["dependencies", "user-create", "user-login", "movie-data-firebase", "movie-data", "search-movie", "movie-to-dom", "dom", "clickhandler", "movie-rating", "my-search"], 
   //^dependencies on dependencies.js
 
   //the dependencies get passed as arguments into the function.
-  function(dependencies, userCreate, userLogin, movieData, searchMovie, movieDom, dom, clickhandler, rating, mySearch) {
-    // $("#navigation").hide();
+  function(dependencies, userCreate, userLogin, movieDataFirebase, movieData, searchMovie, movieDom, dom, clickhandler, rating, mySearch) {
     dom.loadSplash();
 
 });//end of require
