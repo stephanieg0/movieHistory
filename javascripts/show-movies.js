@@ -33,78 +33,85 @@ define(function(require) {
 			},
 
 		// Called on clickhandler.js
-		allMovies: function() {
+		allMovies: function(data) {
 			// Sending movie object through template
-			require(["hbs!../templates/movieDataTemplate"], function (data){
+			require(["hbs!../templates/myMovies"], function (all){
 				console.log("data", data);
 				// Getting the value of watched = true or false
 	          	// watched = data.watched
 	          	// console.log("watched", watched);
 				// Removing functionality based on watched = true or false 
-	          	if (watched = false) {
-	          		// Show watch button
-	            	$(".watch-button").show();
-	            	// Hide add button
-	            	$(".add-button").hide();
-	            	// Stars hidden by default
+	          	// if (watched = false) {
+	           //  	// Hide add button
+	           //  	$(".add-button").hide();
+	           //  	// Stars hidden by default
 	            	
-	          	} else {
-	          		// Hide watch button
-	          		$(".watch-button").hide();
-	          		// Hide add button
-	          		$(".add-button").hide();
-	          		// Show stars
-	            	$(".star-container").show();
-	          	  }
+	          	// } else {
+	          	// 	// Hide watch button
+	          	// 	$(".watch-button").hide();
+	          	// 	// Hide add button
+	          	// 	$(".add-button").hide();
+	          	//   }
+	          	
 	          	// Sending users movie object to DOM
-				$("#main-content").append(data);
+				$("#movie-poster").append(all(data));
+	          	// Show stars
+	            $(".star-container").show();
+	          	// Show watch button
+	            $(".watch-button").show();
 			});
 		},
 
 		// Called on clickhandler.js
-		watchedMovies: function() {
+		watchedMovies: function(data) {
 			// Sending watched movies object through template
-			require(["hbs!../templates/movieDataTemplate"], function (data){
+			require(["hbs!../templates/myMovies"], function (watched){
 				console.log("data", data);
-				// Hide watch button
-	          	$(".watch-button").hide();
-	          	// Hide add button
-	          	$(".add-button").hide();
+				// // Hide watch button
+	   //        	$(".watch-button").hide();
+	   //        	// Hide add button
+	   //        	$(".add-button").hide();
+				// // Sending to DOM
+				
+				$("#movie-poster").append(watched(data));
+				console.log("watched(data)", watched(data))
 	          	// Show stars
 	            $(".star-container").show();
-				// Sending to DOM
-				$("#main-content").append(data);
 			});	
 		},
 
 		// Called on clickhandler.js
-		unwatchedMovies: function() {
+		unwatchedMovies: function(data) {
+			console.log("data", data);
 			// Sending watched movies object through template
-			require(["hbs!../templates/movieDataTemplate"], function (data){
+			require(["hbs!../templates/myMovies"], function (unwatched){
 				console.log("data", data);
-				// Show watch button
-	            $(".watch-button").show();
-	            // Hide add button
-	            $(".add-button").hide();
-	            // Stars hidden by default
+				// // Show watch button
+	   //          $(".watch-button").show();
+	   //          // Hide add button
+	   //          $(".add-button").hide();
+	   //          // Stars hidden by default
+				
 				// Sending to DOM
-				$("#main-content").append(data);
+				$("#movie-poster").append(unwatched(data));
+				// console.log("unwatched(data)", unwatched(data));
 	        });
 		},
 		
 		// Called on clickhandler.js
-		favoriteMovies: function() {
+		favoriteMovies: function(data) {
 			// Sending watched movies object through template
-			require(["hbs!../templates/movieDataTemplate"], function (data){
+			require(["hbs!../templates/myMovies"], function (favorites){
 				console.log("data", data);
-				// Hide watch button
-	          	$(".watch-button").hide();
-	          	// Hide add button
-	          	$(".add-button").hide();
+				// // Hide watch button
+	   //        	$(".watch-button").hide();
+	   //        	// Hide add button
+	   //        	$(".add-button").hide();
+	   			
+				// Sending to DOM
+				$("#movie-poster").append(favorites(data));
 	          	// Show stars
 	            $(".star-container").show();
-				// Sending to DOM
-				$("#main-content").append(data);
 	        });
 		}
 	}

@@ -1,0 +1,29 @@
+<!--Movie Poster with buttons and stars-->
+{{#each []}}
+	<div class="col-md-3">
+		{{!-- <div class="closeButton delete">X</div> --}}
+		<div>
+			<button type="button" class="btn btn-default btn-sm delete
+	  			glyphicon glyphicon-trash" aria-hidden="true">
+			</button>
+		</div>
+	{{#if poster}}
+			<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movieCast" alt="{{title}}" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}">
+		{{else}}
+			<div class="noposter movieCast" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}">{{title}}</div>
+	{{/if}}
+	{{#if watched}}
+		<div class="star-container" {{@key}}>
+	  		<span class="star-rating">
+	    		<input type="radio" name="rating" value="1"><i></i>
+	    		<input type="radio" name="rating" value="2"><i></i>
+	    		<input type="radio" name="rating" value="3"><i></i>
+	    		<input type="radio" name="rating" value="4"><i></i>
+	    		<input type="radio" name="rating" value="5"><i></i>
+	  		</span>
+		</div>
+			{{else}}
+				<div><button type="button" class="btn btn-default watch-button">Watch</button></div>
+	{{/if}}
+	</div>
+{{/each}}
