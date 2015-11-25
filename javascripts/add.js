@@ -33,7 +33,7 @@ define(function(require){
       		var actors = data.Actors;
       		console.log("actors", actors);
       		// Getting imdbID from movie movieobject
-      		var imdbID = movieObject.imdbID;
+      		var imdbID = data.imdbID;
 			//get a reference to our Firebase app
 			var ref = new Firebase("https://movie-history-app.firebaseio.com/users/"+ uuid +"/movies/" + firebaseKey);
       		console.log("uuid", uuid);
