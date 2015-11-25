@@ -41,7 +41,7 @@ define(function(require) {
       });
     });
 
-  // Unwatched will show unwatched movies 
+  // Unwatched will show unwatched movie posters on user profile to DOM 
   $("#unwatched").click(function(){
     // Getting user unique ID
     uuid = gs.getUid();
@@ -49,12 +49,14 @@ define(function(require) {
     var ref = new Firebase ("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
 
     ref.orderByChild("watched").equalTo(false).on("child_added", function(snapshot) {
-      console.log(snapshot.key());
-      showMovies.unwatchedMovies();
+      console.log(snapshot.val());
+      // Resetting DOM
+      $("#movie-poster").empty();
+      showMovies.unwatchedMovies({Search: snapshot.val()});
     });
   });
 
-  //Watched will show watched movies 
+  //Watched will show watched movie posters on user profile to DOM
   $("#watched").click(function(){
     // Getting user unique ID
     uuid = gs.getUid();
@@ -62,12 +64,14 @@ define(function(require) {
     var ref = new Firebase ("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
 
     ref.orderByChild("watched").equalTo(true).on("child_added", function(snapshot) {
-      console.log(snapshot.key());
-      showMovies.watchedMovies();
+      console.log(snapshot.val());
+      // Resetting DOM
+      $("#movie-poster").empty();
+      showMovies.watchedMovies({Search: snapshot.val()});
     });
   });      
 
-  // All button will show all movies on user profile
+  // All button will show all movie posters on user profile to DOM
   $("#all").click(function(){
       // Getting user unique ID
       uuid = gs.getUid();
@@ -75,12 +79,14 @@ define(function(require) {
       var ref = new Firebase ("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
 
       ref.orderByChild("watched").on("child_added", function(snapshot) {
-      console.log(snapshot.key());
-      showMovies.allMovies();
+      console.log(snapshot.val());
+      // Resetting DOM
+      $("#movie-poster").empty();
+      showMovies.allMovies({Search: snapshot.val()});
     });
   });
 
-// All button will show all movies on user profile
+// Favorites button will show all favorited(5 stars) movie posters on user profile to DOM
   $("#favorites").click(function(){
     
       // Getting user unique ID
@@ -89,26 +95,28 @@ define(function(require) {
       var ref = new Firebase ("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
 
       ref.orderByChild("stars").equalTo("5").on("child_added", function(snapshot) {
-      console.log(snapshot.key());
-      showMovies.allMovies();
+      console.log(snapshot.val());
+      // Resetting DOM
+      $("#movie-poster").empty();
+      showMovies.allMovies({Search: snapshot.val()});
     });
   });
 
   // Find movies button
   $("body").on("click", "#find-movies", function(){
-          dom.findMovies();
+      dom.findMovies();
   });
 
   // Search My movies button
   $("body").on("click", "#search-movies", function(){
-          // Displaying template to DOM
-          dom.findMyMovies();
+      // Displaying template to DOM
+      dom.findMyMovies();
   });
 
   // Logging out
   $("body").on('click', "#logout", function() {
     console.log("what is this");
-    // $("#logout").click(function(){
+      // $("#logout").click(function(){
       console.log("click log out");
       ref.unauth();
       dom.loadSplash();

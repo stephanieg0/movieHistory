@@ -31,6 +31,8 @@ define(function(require){
       		// Getting movie actors from movie movieObject
       		var actors = data.Actors;
       		console.log("actors", actors);
+      		// Getting imdbID from movie movieobject
+      		var imdbID = movieObject.imdbID;
 			//get a reference to our Firebase app
 			var ref = new Firebase("https://movie-history-app.firebaseio.com/users/"+ uuid +"/movies/" + title);
       		console.log("uuid", uuid);
@@ -46,6 +48,7 @@ define(function(require){
 		  		"stars": 0,
 		  		"watched": false,
 		  		"poster": "http://img.omdbapi.com/?i=" + imdbId + "&apikey=8513e0a1"
+
 
 			}), function(error) {
 			  if (error) {
