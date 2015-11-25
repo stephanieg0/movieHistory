@@ -98,7 +98,15 @@ h1 {
 
 /*# sourceMappingURL=main.css.map */
 
+/*movieDataTemplate*/
 .col-md-3 {
 	display: inline-block;
+}
+.movie-titles {
+  text-align: center;
+  width: 215px;
+  height: 300px;
+  background-color: gray;
+  padding-top: 50%;
 }
 

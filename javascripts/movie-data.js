@@ -20,9 +20,22 @@ define(function(require){
 				method: "GET"
 				})
 				.done(function(data){
+
 					console.log("movie-data", data);
+					//Making "N/A" poster equal to 0 for handlebars template to read.
+				for (var i = 0; i < data.Search.length; i++) {
+					if (data.Search[i].Poster === "N/A") {
+						
+						data.Search[i].Poster = 0;
+						
+						console.log("new data", data);
+					
+					}else {
+
 						//resolving promise
 						deferred.resolve(data);
+					}
+				}
 
 					console.log("search", "http://www.omdbapi.com/?s=" + movieInput + "&type=movie");
 
