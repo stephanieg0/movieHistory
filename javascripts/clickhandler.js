@@ -48,6 +48,8 @@ define(function(require) {
   $("#unwatched").click(function(){
     // Getting user unique ID
     uuid = gs.getUid();
+    // Resetting DOM
+    $("#movie-poster").empty();
     // Referencing Fireabse
     var ref = new Firebase ("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
 
@@ -58,7 +60,6 @@ define(function(require) {
       var snapshot = snapshot.val();
       var title = snapshot.title;
       console.log("title", title);
-      $("#movie-poster").empty();
       showMovies.unwatchedMovies({[snapKey]: snapshot});
     });
   });
@@ -67,17 +68,16 @@ define(function(require) {
   $("#watched").click(function(){
     // Getting user unique ID
     uuid = gs.getUid();
+    $("#movie-poster").empty();
     // Referencing Fireabse
     var ref = new Firebase ("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
 
     ref.orderByChild("watched").equalTo(true).on("child_added", function(snapshot) {
       console.log(snapshot.val());
-      // Resetting DOM
       var snapKey = snapshot.key();
       var snapshot = snapshot.val();
       var title = snapshot.title;
       console.log("title", title);
-      $("#movie-poster").empty();
       showMovies.watchedMovies({[snapKey]: snapshot});
     });
   });      
@@ -86,17 +86,17 @@ define(function(require) {
   $("#all").click(function(){
       // Getting user unique ID
       uuid = gs.getUid();
+      // Resetting DOM
+      $("#movie-poster").empty();
       // Referencing Fireabse
       var ref = new Firebase ("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
       console.log("ref", ref);
       ref.orderByChild("watched").on("child_added", function(snapshot) {
       console.log(snapshot.val());
-      // Resetting DOM
       var snapKey = snapshot.key();
       var snapshot = snapshot.val();
       var title = snapshot.title;
       console.log("title", title);
-      $("#movie-poster").empty();
       showMovies.allMovies({[snapKey]: snapshot});
     });
   });
@@ -106,17 +106,17 @@ define(function(require) {
       console.log("favorites click");
       // Getting user unique ID
       uuid = gs.getUid();
+      // Resetting DOM
+      $("#movie-poster").empty();
       // Referencing Fireabse
       var ref = new Firebase ("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
       console.log("ref", ref);
       ref.orderByChild("stars").equalTo(5).on("child_added", function(snapshot) {
       console.log(snapshot.val());
-      // Resetting DOM
       var snapKey = snapshot.key();
       var snapshot = snapshot.val();
       var title = snapshot.title;
       console.log("title", title);
-      $("#movie-poster").empty();
       showMovies.allMovies({[snapKey]: snapshot});
     });
   });

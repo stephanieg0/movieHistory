@@ -35,7 +35,7 @@ define(function(require){
       		// Getting imdbID from movie movieobject
       		var imdbID = data.imdbID;
 			//get a reference to our Firebase app
-			var ref = new Firebase("https://movie-history-app.firebaseio.com/users/"+ uuid +"/movies/" + firebaseKey);
+			var ref = new Firebase("https://movie-history-app.firebaseio.com/users/"+ uuid +"/movies/" + imdbID);
       		console.log("uuid", uuid);
       		//moving to next page
       		// dom.myAddedMovies();
