@@ -22,7 +22,8 @@ define(function(require){
       		// Getting movie title from movie object
       		var title = data.Title;
       		console.log("title", title);
-      		var firebaseKey = title.toLowerCase().replace(/ /g, "_");
+      		// normalizing title
+      		var lowerTitle= title.toLowerCase().replace(/ /g, "_");
       		// Getting movie year from movie object
       		var year = data.Year;
       		console.log("year", year);
@@ -42,7 +43,7 @@ define(function(require){
       		// Pushing object to Firebase
 			ref.set({
 
-		  		"title": title,
+		  		"title": lowerTitle,
 		  		"year": year,
 		  		"actors": actors,
 		  		"imdbID": imdbId,
