@@ -1,10 +1,10 @@
 <!--Movie Poster with buttons and stars-->
-{{#each []}}
+{{#each this}}
 	<div class="col-md-3">
 		{{!-- <div class="closeButton delete">X</div> --}}
 		<div>
 			<button type="button" class="btn btn-default btn-sm delete
-	  			glyphicon glyphicon-trash" aria-hidden="true">
+	  			glyphicon glyphicon-trash" id="{{@key}}" aria-hidden="true">
 			</button>
 		</div>
 	{{#if poster}}
@@ -23,7 +23,7 @@
 	  		</span>
 		</div>
 			{{else}}
-				<div><button type="button" class="btn btn-default watch-button">Watch</button></div>
+				<div><button type="button" class="btn btn-default watch-button" id="{{@key}}">Watch</button></div>
 	{{/if}}
 	</div>
 {{/each}}
