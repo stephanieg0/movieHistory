@@ -2,7 +2,7 @@
 {{#each Search}}
 <div class="col-md-3">
 	{{#if Poster}}
-		<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437">
+		<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movieCast" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}"></img>
 	{{else}}
 		<div class="movie-titles">{{Title}}</div>
 	{{/if}}

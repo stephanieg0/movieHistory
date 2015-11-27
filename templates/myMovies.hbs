@@ -8,7 +8,7 @@
 			</button>
 		</div>
 	{{#if poster}}
-			<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movieCast" alt="{{title}}" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}">
+			<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movieCast" alt="{{title}}" data-toggle="modal" data-target="#movieInfoModal" id="{{@key}}">
 		{{else}}
 			<div class="noposter movieCast" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}">{{title}}</div>
 	{{/if}}

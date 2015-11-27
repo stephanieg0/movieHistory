@@ -8,6 +8,7 @@ define(function(require) {
   var gs = require("get-set");
   var del = require("deleteMovie");
   var mr = require("movie-rating");
+  var omdb = require("omdbAjax");
   
   
   // Ref to firebase
@@ -172,6 +173,22 @@ define(function(require) {
     var movieKey = $(this).attr('id');
     console.log("movieKey", movieKey);
     mr(movieKey);
+  });
+
+  // More info modal
+  $(document).on("click", ".movieCast", function(e)  {
+    console.log("Movie info modal");    
+    console.log(e.target);
+    var movieID = this.id;
+    console.log(movieID);
+
+    omdb(movieID).then(function(movieData) {
+      console.log("movieData", movieData);
+
+      require(['hbs!../templates/moreInfoModal'], function (movieTemplate) {
+            $(".movieInfo").html(movieTemplate(movieData));
+          });
+    });
   });
 
 });
