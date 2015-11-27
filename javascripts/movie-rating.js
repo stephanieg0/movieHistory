@@ -4,28 +4,14 @@ define(function(require){
 	var Q = require("q");
 	var gs = require("get-set");
 
-
-	//Watch button is clicked.
-	$("body").on("click", ".watch-button", function(){
-		console.log("watch button works, and shows stars");
-		//watch button needs to hide. 
-		$(".watch-button").hide();
-		//stars show up after watch button is clicked.
-		$(".star-container").show();
-
-		//importing data and set variables.
+		
+ 	return function(changeThisMovie){
+ 		console.log("changeThisMovie", changeThisMovie);
 		//current user id
 		var uuid = gs.getUid();
 		console.log("uuid", uuid);
-		//current object for movie
-		var movieObject = gs.getData();
-  		console.log("movieObject", movieObject);
-  		// Getting movie title from movie object
-  		var title = movieObject.Title;
-  		console.log("title", title);
-
 		//firebase reference to upload to specific url
-		var ref = new Firebase("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies/" + title);
+		var ref = new Firebase("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies/" + changeThisMovie);
 		//updating a watched value to true.
   		ref.update({
   			"watched": true
@@ -48,9 +34,5 @@ define(function(require){
 					}	
 				});
 			});
-
-
-		});
-
-
+	};
 });//end of define

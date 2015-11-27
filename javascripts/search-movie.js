@@ -10,6 +10,8 @@ define(function(require){
 	$("#searchBox").keypress(function(){
 		if(event.which == 13){
 			console.log("click is working");
+			// Clearing DOM
+			$("#movie-poster").empty();
 			//calling first promise to bring firebase data
 			movieDataFirebase.moviesFirebase()
 			.then(function (firebaseData){

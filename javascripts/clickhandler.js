@@ -6,6 +6,9 @@ define(function(require) {
   var dom = require("dom");
   var showMovies = require("show-movies");
   var gs = require("get-set");
+  var del = require("deleteMovie");
+  var mr = require("movie-rating");
+  
   
   // Ref to firebase
   var ref = new Firebase("https://movie-history-app.firebaseio.com/");
@@ -51,8 +54,12 @@ define(function(require) {
     ref.orderByChild("watched").equalTo(false).on("child_added", function(snapshot) {
       console.log(snapshot.val());
       // Resetting DOM
+      var snapKey = snapshot.key();
+      var snapshot = snapshot.val();
+      var title = snapshot.title;
+      console.log("title", title);
       $("#movie-poster").empty();
-      showMovies.unwatchedMovies({Search: snapshot.val()});
+      showMovies.unwatchedMovies({[snapKey]: snapshot});
     });
   });
 
@@ -66,8 +73,12 @@ define(function(require) {
     ref.orderByChild("watched").equalTo(true).on("child_added", function(snapshot) {
       console.log(snapshot.val());
       // Resetting DOM
+      var snapKey = snapshot.key();
+      var snapshot = snapshot.val();
+      var title = snapshot.title;
+      console.log("title", title);
       $("#movie-poster").empty();
-      showMovies.watchedMovies({Search: snapshot.val()});
+      showMovies.watchedMovies({[snapKey]: snapshot});
     });
   });      
 
@@ -77,28 +88,36 @@ define(function(require) {
       uuid = gs.getUid();
       // Referencing Fireabse
       var ref = new Firebase ("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
-
+      console.log("ref", ref);
       ref.orderByChild("watched").on("child_added", function(snapshot) {
       console.log(snapshot.val());
       // Resetting DOM
+      var snapKey = snapshot.key();
+      var snapshot = snapshot.val();
+      var title = snapshot.title;
+      console.log("title", title);
       $("#movie-poster").empty();
-      showMovies.allMovies({Search: snapshot.val()});
+      showMovies.allMovies({[snapKey]: snapshot});
     });
   });
 
 // Favorites button will show all favorited(5 stars) movie posters on user profile to DOM
   $("#favorites").click(function(){
-    
+      console.log("favorites click");
       // Getting user unique ID
       uuid = gs.getUid();
       // Referencing Fireabse
       var ref = new Firebase ("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
-
-      ref.orderByChild("stars").equalTo("5").on("child_added", function(snapshot) {
+      console.log("ref", ref);
+      ref.orderByChild("stars").equalTo(5).on("child_added", function(snapshot) {
       console.log(snapshot.val());
       // Resetting DOM
+      var snapKey = snapshot.key();
+      var snapshot = snapshot.val();
+      var title = snapshot.title;
+      console.log("title", title);
       $("#movie-poster").empty();
-      showMovies.allMovies({Search: snapshot.val()});
+      showMovies.allMovies({[snapKey]: snapshot});
     });
   });
 
@@ -126,16 +145,36 @@ define(function(require) {
   // User clicking add to have movie added to their profile
     $("body").on('click', ".add-button", function() {
       var imdb = $(this).attr("imdb");
+      console.log("imdb", imdb);
       $(this).hide();
       console.log($(this))
-      $(this).siblings(".watch-button").show()
+      $(this).siblings(".watch-button").show();
 
       console.log("isss this working???", imdb);
       console.log("add click");
       add.addInfo(imdb);
     });  
 
+  // User click will delete selected movie from Firebase and reload DOM
+  $(document).on("click", ".delete", function(e) {
+    console.log("delete button is working!!!!");
+    console.log(this);
+    // Removing selected item from Firebase
+    var movieKey = $(this).attr('id');
+    console.log("movieKey", movieKey);
+    del(movieKey);
+  });
 
+  //Watch button is clicked.
+  $("body").on("click", ".watch-button", function(){
+    console.log("watch button works, and shows stars");
+    // console.log("this", this);
+    var movieKey = $(this).attr('id');
+    console.log("movieKey", movieKey);
+    mr(movieKey);
+  });
 
 });
+
+
 
