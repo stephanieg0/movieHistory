@@ -110,7 +110,7 @@ h1 {
   padding-top: 50%;
 }
 
-.delete {
+#delete {
   border-radius: 50%;
   background-color: #000;
   position: relative;

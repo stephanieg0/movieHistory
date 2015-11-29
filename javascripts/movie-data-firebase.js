@@ -16,13 +16,12 @@ define(function(require){
 			console.log("movie input", movieInput);
 			var movieRef = new Firebase("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
 			// var firebaseData = movieRef.orderByChild("title").equalTo(movieInput);
-			
-			var firebaseKeys = movieRef.orderByKey().equalTo(movieInput);
+			var firebaseKeys = movieRef.orderByChild("imdbID");
+			console.log("firebaseKeys", firebaseKeys);
 			firebaseKeys.once("value", function(snapshot) {
 				var firebaseData = snapshot.val();
 				console.log("snapshot", firebaseData);
-				deferred.resolve({Search: firebaseData});
-				
+				// deferred.resolve(firebaseData);
 			});
 
 			
@@ -33,12 +32,8 @@ define(function(require){
 			// var firebaseData = snapshot.val();
 
 		
-			// });
-			return deferred.promise;
 		}
-	}
-
-
-
-
+			// return deferred.promise;
+	};
+				return firebaseData;
 });//end of define

@@ -1,18 +1,50 @@
 <!--Movie Poster with buttons and stars-->
 {{#each this}}
+	{{#if added}}
 	<div class="col-md-3">
 		{{!-- <div class="closeButton delete">X</div> --}}
-		<div>
-			<button type="button" class="btn btn-default btn-sm delete
-	  			glyphicon glyphicon-trash" id="{{@key}}" aria-hidden="true">
-			</button>
-		</div>
+		<button type="button" class="btn btn-default btn-sm 
+	  		glyphicon glyphicon-trash" id="delete" yep="{{imdbID}}" aria-hidden="true">
+		</button>
+		{{else}}
+		<div class="col-md-3">
+		{{/if}}
 	{{#if poster}}
 			<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movieCast" alt="{{title}}" data-toggle="modal" data-target="#movieInfoModal" id="{{@key}}">
 		{{else}}
-			<div class="noposter movieCast" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}">{{title}}</div>
+			<div class="movie-titles">{{Title}}</div>
+			{{!-- <div class="noposter movieCast" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}">{{title}}</div> --}}
 	{{/if}}
-	{{#if watched}}
+	{{#if added}}
+		{{#if watched}}
+			{{!-- <div class="star-container" id="{{@key}}"> --}}
+			  <span class="star-rating" id="{{@key}}">
+			    <input type="radio" name="rating" value="1"><i></i>
+			    <input type="radio" name="rating" value="2"><i></i>
+			    <input type="radio" name="rating" value="3"><i></i>
+			    <input type="radio" name="rating" value="4"><i></i>
+			    <input type="radio" name="rating" value="5"><i></i>
+			  </span>
+			{{else}}
+				<button type="button" class="btn btn-default watch-button" id="{{@key}}">Watch</button>
+		{{/if}}
+
+		{{else}}
+			<button type="button" class="btn btn-default add-button" imdb="{{imdbID}}">Add</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	{{!-- {{#if watched}}
 		<div class="star-container" {{@key}}>
 	  		<span class="star-rating">
 	    		<input type="radio" name="rating" value="1"><i></i>
@@ -23,7 +55,7 @@
 	  		</span>
 		</div>
 			{{else}}
-				<div><button type="button" class="btn btn-default watch-button" id="{{@key}}">Watch</button></div>
+				<div><button type="button" class="btn btn-default watch-button" id="{{@key}}">Watch</button></div> --}}
 	{{/if}}
 	</div>
 {{/each}}

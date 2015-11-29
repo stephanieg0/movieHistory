@@ -43,6 +43,7 @@ define(function(require){
       		// Pushing object to Firebase
 			ref.set({
 
+				"added": true,
 		  		"title": lowerTitle,
 		  		"year": year,
 		  		"actors": actors,
