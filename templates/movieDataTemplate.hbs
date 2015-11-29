@@ -2,13 +2,13 @@
 {{#each Search}}
 <div class="col-md-3">
 	{{#if Poster}}
-		<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437">
+		<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movie-posters-dimensions">
 	{{else}}
 		<div class="movie-titles">{{Title}}</div>
 	{{/if}}
 	<!--Add Button-->
-	<div><button type="button" class="btn btn-default add-button" imdb="{{imdbID}}">Add</button>
-	<button type="button" class="btn btn-default watch-button" id="{{@key}}">Watch</button></div>
+	<div><button type="button" class="btn btn-warning add-button" imdb="{{imdbID}}">Add</button>
+	<button type="button" class="btn btn-success watch-button" id="{{@key}}">Watch</button></div>
 	
 	 <!--Stars Rating-->
 	 <!--stars are hidden until watched button is clicked-->
