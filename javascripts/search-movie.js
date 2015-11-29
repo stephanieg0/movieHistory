@@ -52,37 +52,53 @@ define(function(require){
 					firebaseKeys.once("value", function(snapshot) {
 						firebaseData = snapshot.val();
 						console.log("snapshot", firebaseData);
-					// // Making Firebase call
-					// movieDataFirebase.moviesFirebase()
-					// 	// Returning from Firebase
-					// 	.then(function(firebaseData){
-					// 		console.log("firebaseData", firebaseData);
-					// Pushing firebase movies into array
-					myMoviesArray = $.map(firebaseData, function(element){
-						return element;
-					});
-					// Filtering myMoviesArray to see if a title in Firebase equals the one searched for
-					filteredArray = _.filter(myMoviesArray, function (obj) {
-  						if (_.includes(obj.title.toLowerCase(), movieInput)) {
-    						console.log("obj includes", obj.title);
-						return obj;
-  						}
-					});
-					console.log("filteredArray", filteredArray);
-					// Combining search and filtered arrays
-					combinedArray = filteredArray.concat(searchMoviesArray);
-					console.log("combinedArray", combinedArray);
-					// Filtering combinedArray for duplicates
-					uniqueMovies = _.uniq(combinedArray, "imdbID");
-					console.log("uniqueMovies", uniqueMovies);
-					// Sending uniqueMovies through Handlebars
-					require(['hbs!../templates/myMovies'], function (formTemplate) {
-	    				console.log("movieDataTemplate is running");
-	    				$("#movie-poster").append(formTemplate(uniqueMovies));
-	    			});
-					// movieDom.movieForm(uniqueMovies);
-					movieInput = "";
-					// });
+						if (firebaseData === null) {
+							combinedArray = searchMoviesArray;
+							console.log("combinedArray", combinedArray);
+							// Combining search and filtered arrays
+							combinedArray = filteredArray.concat(searchMoviesArray);
+							console.log("combinedArray", combinedArray);
+							// Filtering combinedArray for duplicates
+							uniqueMovies = _.uniq(combinedArray, "imdbID");
+							console.log("uniqueMovies", uniqueMovies);
+							// Sending uniqueMovies through Handlebars
+							require(['hbs!../templates/myMovies'], function (formTemplate) {
+	    						console.log("movieDataTemplate is running");
+	    						$("#movie-poster").append(formTemplate(uniqueMovies));
+	    					});
+	    					movieInput = "";
+						} else {	
+							// // Making Firebase call
+							// movieDataFirebase.moviesFirebase()
+							// 	// Returning from Firebase
+							// 	.then(function(firebaseData){
+							// 		console.log("firebaseData", firebaseData);
+							// Pushing firebase movies into array
+							myMoviesArray = $.map(firebaseData, function(element){
+								return element;
+							});
+							// Filtering myMoviesArray to see if a title in Firebase equals the one searched for
+							filteredArray = _.filter(myMoviesArray, function (obj) {
+		  						if (_.includes(obj.title.toLowerCase(), movieInput)) {
+		    						console.log("obj includes", obj.title);
+								return obj;
+		  						}
+							});
+							console.log("filteredArray", filteredArray);
+							// Combining search and filtered arrays
+							combinedArray = filteredArray.concat(searchMoviesArray);
+							console.log("combinedArray", combinedArray);
+							// Filtering combinedArray for duplicates
+							uniqueMovies = _.uniq(combinedArray, "imdbID");
+							console.log("uniqueMovies", uniqueMovies);
+							// Sending uniqueMovies through Handlebars
+							require(['hbs!../templates/myMovies'], function (formTemplate) {
+			    				console.log("movieDataTemplate is running");
+			    				$("#movie-poster").append(formTemplate(uniqueMovies));
+			    			});
+							// movieDom.movieForm(uniqueMovies);
+							movieInput = "";
+						}
 					});
 				});
 

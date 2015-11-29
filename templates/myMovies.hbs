@@ -9,15 +9,15 @@
 		{{else}}
 		<div class="col-md-3">
 		{{/if}}
-	{{#if poster}}
-			<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movieCast" alt="{{title}}" data-toggle="modal" data-target="#movieInfoModal" id="{{@key}}">
+	{{#if Poster}}
+			<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movieCast" alt="{{title}}" data-toggle="modal" data-target="#movieInfoModal" id="{{@key}}"></img>
 		{{else}}
 			<div class="movie-titles">{{Title}}</div>
 			{{!-- <div class="noposter movieCast" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}">{{title}}</div> --}}
 	{{/if}}
 	{{#if added}}
 		{{#if watched}}
-			{{!-- <div class="star-container" id="{{@key}}"> --}}
+			<div class="star-container" id="{{@key}}">
 			  <span class="star-rating" id="{{@key}}">
 			    <input type="radio" name="rating" value="1"><i></i>
 			    <input type="radio" name="rating" value="2"><i></i>
@@ -25,12 +25,13 @@
 			    <input type="radio" name="rating" value="4"><i></i>
 			    <input type="radio" name="rating" value="5"><i></i>
 			  </span>
+			</div>  
 			{{else}}
-				<button type="button" class="btn btn-default watch-button" id="{{@key}}">Watch</button>
+				<div type="button" class="btn btn-default watch-button" id="{{imdbID}}">Watch</div>
 		{{/if}}
 
 		{{else}}
-			<button type="button" class="btn btn-default add-button" imdb="{{imdbID}}">Add</button>
+			<div type="button" class="btn btn-default add-button" imdb="{{imdbID}}">Add</div>
 
 
 
