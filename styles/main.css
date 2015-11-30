@@ -1,29 +1,38 @@
 #nav-bar {
-  border: 1px solid black; }
+  /*border: 1px solid black; */
+  background-color: #C42200; 
+  border: 4px solid #A80000; }
+
 
 #logout {
   float: right; }
 
 body {
-  width: 98%;
-  height: 100%; }
+  height: 100%; 
+  font-family: 'Montserrat', sans-serif; 
+  margin: 0; 
+  background-color: #00293C; }
 
 body::after {
-  content: "";
-  background: url(../images/background.jpeg) no-repeat center center fixed;
-  background-size: fixed;
+  /*content: "";*/
+  /*background: url(../images/background.jpeg) no-repeat center center fixed;*/
+  /*background-size: fixed;*/
   opacity: 0.3;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   position: absolute;
-  z-index: -1; }
+  z-index: -1; 
+  margin: 0; }
+
+
 
 .splashPage {
   text-align: center;
   height: 100%;
-  vertical-align: middle; }
+  vertical-align: middle; 
+  margin: 0 35%; }
 
 #register {
   float: right; }
@@ -32,8 +41,60 @@ body::after {
   float: left; }
 
 h1 {
-  text-align: center; }
+  text-align: center; 
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-weight: 700; 
+  color: #F1F3CE; }
 
+#email {
+  text-align: center;
+  margin-bottom: 10px;
+}
+#password {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.nav-tabs {
+  height: 80px;
+  border: 0;
+}
+
+a {
+  color: #F1F3CE;
+}
+
+#searchBox {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+#movie-poster {
+  margin: 50px;
+  min-height: 300px;
+}
+
+.nav-tabs>li>a {
+  border-radius: 5px;
+}
+
+.links{
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+.links:hover {
+  text-decoration: none;
+  color: #E0B880;
+}
+
+.not-active {
+  pointer-events: none;
+  cursor: default;
+  font-size: 25px;
+  color: #A80000;
+}
 /*# sourceMappingURL=main.css.map */
 
 
@@ -101,13 +162,20 @@ h1 {
 /*movieDataTemplate*/
 .col-md-3 {
 	display: inline-block;
+  margin-bottom: 20px;
 }
 .movie-titles {
   text-align: center;
-  width: 215px;
+  width: 213px;
   height: 300px;
   background-color: gray;
   padding-top: 50%;
+  border: 4px solid #001C29;
+}
+.movie-posters-dimensions {
+  width: 213px;
+  height: 300px;
+  border: 4px solid #001C29;
 }
 
 .delete {
