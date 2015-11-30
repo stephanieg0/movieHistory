@@ -16,8 +16,6 @@ define(function(require) {
 				})
 				.done(function(data){
 					console.log("data", data);
-					// Sending poster back
-					// data.poster = "https://movie-history-app.firebaseio.com/users/" + uuid + "/movies" + movieInput + poster;
 					//resolving promise
 					deferred.resolve(data);
 
@@ -37,22 +35,6 @@ define(function(require) {
 			// Sending movie object through template
 			require(["hbs!../templates/myMovies"], function (all){
 				console.log("data", data);
-				// Getting the value of watched = true or false
-	          	// watched = data.watched
-	          	// console.log("watched", watched);
-				// Removing functionality based on watched = true or false 
-	          	// if (watched = false) {
-	           //  	// Hide add button
-	           //  	$(".add-button").hide();
-	           //  	// Stars hidden by default
-	            	
-	          	// } else {
-	          	// 	// Hide watch button
-	          	// 	$(".watch-button").hide();
-	          	// 	// Hide add button
-	          	// 	$(".add-button").hide();
-	          	//   }
-	          	
 	          	// Sending users movie object to DOM
 				$("#movie-poster").append(all(data));
 	          	// Show stars
@@ -67,12 +49,7 @@ define(function(require) {
 			// Sending watched movies object through template
 			require(["hbs!../templates/myMovies"], function (watched){
 				console.log("data", data);
-				// // Hide watch button
-	   //        	$(".watch-button").hide();
-	   //        	// Hide add button
-	   //        	$(".add-button").hide();
 				// // Sending to DOM
-				
 				$("#movie-poster").append(watched(data));
 				console.log("watched(data)", watched(data))
 	          	// Show stars
@@ -86,12 +63,6 @@ define(function(require) {
 			// Sending watched movies object through template
 			require(["hbs!../templates/myMovies"], function (unwatched){
 				console.log("data", data);
-				// // Show watch button
-	   //          $(".watch-button").show();
-	   //          // Hide add button
-	   //          $(".add-button").hide();
-	   //          // Stars hidden by default
-				
 				// Sending to DOM
 				$("#movie-poster").append(unwatched(data));
 				// console.log("unwatched(data)", unwatched(data));
@@ -102,12 +73,7 @@ define(function(require) {
 		favoriteMovies: function(data) {
 			// Sending watched movies object through template
 			require(["hbs!../templates/myMovies"], function (favorites){
-				console.log("data", data);
-				// // Hide watch button
-	   //        	$(".watch-button").hide();
-	   //        	// Hide add button
-	   //        	$(".add-button").hide();
-	   			
+				console.log("data", data);		
 				// Sending to DOM
 				$("#movie-poster").append(favorites(data));
 	          	// Show stars

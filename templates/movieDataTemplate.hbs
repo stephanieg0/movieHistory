@@ -3,10 +3,15 @@
 <div class="col-md-3">
 	{{#if Poster}}
 		<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movieCast movie-posters-dimensions" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}"></img>
+
 	{{else}}
 		<div class="movie-titles">{{Title}}</div>
 	{{/if}}
 	<!--Add Button-->
+
+	<div><button type="button" class="btn btn-warning add-button" imdb="{{imdbID}}">Add</button>
+	<button type="button" class="btn btn-success watch-button" id="{{@key}}">Watch</button></div>
+
 	{{#if added}}
 		{{#if watched}}
 			<div class="star-container" id="{{@key}}">
@@ -25,6 +30,7 @@
 		{{else}}
 			<button type="button" class="btn btn-default add-button" imdb="{{imdbID}}">Add</button>
 	{{/if}}
+
 </div>
 
 {{/each}}

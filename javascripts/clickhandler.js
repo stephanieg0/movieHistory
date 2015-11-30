@@ -140,6 +140,8 @@ define(function(require) {
       // $("#logout").click(function(){
       console.log("click log out");
       ref.unauth();
+      $("#movie-poster").empty();
+      $("#nav-bar").hide();
       dom.loadSplash();
       console.log("you have logged out");
     });
