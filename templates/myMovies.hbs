@@ -29,12 +29,12 @@
 			  </span>
 			{{!-- </div>   --}}
 			{{else}}
-				<div type="button" class="btn btn-default watch-button" id="{{imdbID}}">Watch</div>
+				<div type="button" class="btn btn-success watch-button" id="{{imdbID}}">Watch</div>
 		{{/if}}
 
 		{{else}}
-			<div type="button" class="btn btn-default add-button" imdb="{{imdbID}}">Add</div>
+			<div type="button" class="btn btn-warning add-button" imdb="{{imdbID}}">Add</div>
 
-		{{/if}}
+	{{/if}}
 	</div>
 {{/each}}
