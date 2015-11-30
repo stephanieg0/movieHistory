@@ -14,16 +14,10 @@ define(function (require) {
 		},
 
 		loadMain: function () {
+				$("#nav-bar").show();
 				$("#main-content").html("");
 				$("div").removeClass("hidden");
 		}
-		
-
-		// myAddedMovies: function() {
-		// 	console.log("whatever");
-		// 	$(this).hide();
-		// 	$(this).show();
-		// }, 
 	};
 });
 

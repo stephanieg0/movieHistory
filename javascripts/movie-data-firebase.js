@@ -23,15 +23,6 @@ define(function(require){
 				console.log("snapshot", firebaseData);
 				// deferred.resolve(firebaseData);
 			});
-
-			
-
-			//have the title input match the title key in firebase.
-			//get key parent from that title key to use in url.
-			// movieRef.once("value", function (snapshot){
-			// var firebaseData = snapshot.val();
-
-		
 		}
 			// return deferred.promise;
 	};

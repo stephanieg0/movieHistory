@@ -68,11 +68,6 @@ define(function(require){
 	    					});
 	    					movieInput = "";
 						} else {	
-							// // Making Firebase call
-							// movieDataFirebase.moviesFirebase()
-							// 	// Returning from Firebase
-							// 	.then(function(firebaseData){
-							// 		console.log("firebaseData", firebaseData);
 							// Pushing firebase movies into array
 							myMoviesArray = $.map(firebaseData, function(element){
 								return element;
@@ -101,48 +96,7 @@ define(function(require){
 						}
 					});
 				});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			// //calling first promise to bring firebase data
-			// movieDataFirebase.moviesFirebase()
-			// .then(function (firebaseData){
-			// 	// console.log("first promise");
-			// 	movieDom.movieForm(firebaseData);
-			// 	// gs.setData(data);
-			// })
-			// //calling Second promise to bring API
-			// .then(function() {
-			// 	movieData.movies()
-			// 	.then(function (data){
-			// 		// console.log("second promise");
-			// 		movieDom.movieForm(data);
-			// 		// Sending movie object to setter to be able to access later
-			// 		gs.setData(data);
-
-			// 		}).fail(function(error){
-			// 			console.log("error");
-			// 	});
-			// })	
+	
 		};//end of if statement
 	});//end of keypress function
 });//end of define

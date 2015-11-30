@@ -51,14 +51,6 @@ define(function(require){
 				alert("No movies matched your search.")
 			}
 
-			// }
-		// 	console.log("promise kept");
-		// 	// Sending return to DOM
-		// 	movieDom.movieForm(data);
-		// 	// Sending movie object to setter to be able to access later
-		// 	gs.setData(data);
-		// 	// dom.searchResults();
-		// 	dom.loadNavbar();
 		})
 		.fail(function(){
 			console.log("fail error");
