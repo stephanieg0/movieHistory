@@ -1,20 +1,52 @@
 <!--Movie Poster with buttons and stars-->
 {{#each this}}
+	{{#if added}}
 	<div class="col-md-3">
 		{{!-- <div class="closeButton delete">X</div> --}}
-		<div>
-			<button type="button" class="btn btn-default btn-sm delete
-	  			glyphicon glyphicon-trash" id="{{@key}}" aria-hidden="true">
-			</button>
-		</div>
-	{{#if poster}}
 
-			<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movieCast movie-posters-dimensions" alt="{{title}}" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}">
+		<button type="button" class="btn btn-default btn-sm 
+	  		glyphicon glyphicon-trash" id="delete" yep="{{imdbID}}" aria-hidden="true">
+		</button>
+		{{else}}
+		<div class="col-md-3">
+		{{/if}}
+	{{#if Poster}}
+			<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movieCast" alt="{{title}}" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}"></img>
+		{{else}}
+			<div class="movie-titles noposter movieCast" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}">{{Title}}</div>
+
+	{{/if}}
+	{{#if added}}
+		{{#if watched}}
+			{{!-- <div class="star-container" id="{{@key}}"> --}}
+			  <span class="star-rating" id="{{@key}}">
+			    <input type="radio" name="rating" value="1"><i></i>
+			    <input type="radio" name="rating" value="2"><i></i>
+			    <input type="radio" name="rating" value="3"><i></i>
+			    <input type="radio" name="rating" value="4"><i></i>
+			    <input type="radio" name="rating" value="5"><i></i>
+			  </span>
+			{{!-- </div>   --}}
+			{{else}}
+				<div type="button" class="btn btn-default watch-button" id="{{imdbID}}">Watch</div>
+		{{/if}}
 
 		{{else}}
-			<div class="noposter movieCast movie-titles" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}">{{title}}</div>
-	{{/if}}
-	{{#if watched}}
+			<div type="button" class="btn btn-default add-button" imdb="{{imdbID}}">Add</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	{{!-- {{#if watched}}
 		<div class="star-container" {{@key}}>
 	  		<span class="star-rating">
 	    		<input type="radio" name="rating" value="1"><i></i>
@@ -25,7 +57,11 @@
 	  		</span>
 		</div>
 			{{else}}
+<<<<<<< HEAD
 				<div><button type="button" class="btn btn-success watch-button" id="{{@key}}">Watch</button></div>
+=======
+				<div><button type="button" class="btn btn-default watch-button" id="{{@key}}">Watch</button></div> --}}
+>>>>>>> cc208c49bf46bdec62987b5865ec0650907a188f
 	{{/if}}
 	</div>
 {{/each}}

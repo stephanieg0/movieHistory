@@ -43,13 +43,14 @@ define(function(require){
       		// Pushing object to Firebase
 			ref.set({
 
+				"added": true,
 		  		"title": lowerTitle,
 		  		"year": year,
 		  		"actors": actors,
 		  		"imdbID": imdbId,
 		  		"stars": 0,
 		  		"watched": false,
-		  		"poster": "http://img.omdbapi.com/?i=" + imdbId + "&apikey=8513e0a1"
+		  		"Poster": "http://img.omdbapi.com/?i=" + imdbId + "&apikey=8513e0a1"
 
 
 			}), function(error) {

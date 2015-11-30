@@ -1,5 +1,5 @@
 <!--Movie Poster with buttons and stars-->
-{{#each Search}}
+{{#each []}}
 <div class="col-md-3">
 	{{#if Poster}}
 
@@ -9,8 +9,43 @@
 		<div class="movie-titles">{{Title}}</div>
 	{{/if}}
 	<!--Add Button-->
+
 	<div><button type="button" class="btn btn-warning add-button" imdb="{{imdbID}}">Add</button>
 	<button type="button" class="btn btn-success watch-button" id="{{@key}}">Watch</button></div>
+
+	{{#if added}}
+		{{#if watched}}
+			<div class="star-container" id="{{@key}}">
+			  <span class="star-rating">
+			    <input type="radio" name="rating" value="1"><i></i>
+			    <input type="radio" name="rating" value="2"><i></i>
+			    <input type="radio" name="rating" value="3"><i></i>
+			    <input type="radio" name="rating" value="4"><i></i>
+			    <input type="radio" name="rating" value="5"><i></i>
+			  </span>
+			</div>
+			{{else}}
+				<button type="button" class="btn btn-default watch-button" id="{{@key}}">Watch</button>
+		{{/if}}
+
+		{{else}}
+			<button type="button" class="btn btn-default add-button" imdb="{{imdbID}}">Add</button>
+	{{/if}}
+
+
+
+
+
+
+
+
+
+
+
+
+	{{!-- <div><button type="button" class="btn btn-default add-button" imdb="{{imdbID}}">Add</button>
+	<button type="button" class="btn btn-default watch-button" id="{{@key}}">Watch</button></div>
+>>>>>>> cc208c49bf46bdec62987b5865ec0650907a188f
 	
 	 <!--Stars Rating-->
 	 <!--stars are hidden until watched button is clicked-->
@@ -22,7 +57,7 @@
 	    <input type="radio" name="rating" value="4"><i></i>
 	    <input type="radio" name="rating" value="5"><i></i>
 	  </span>
-	</div>
+	</div> --}}
 </div>
 
 {{/each}}

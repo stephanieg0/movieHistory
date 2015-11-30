@@ -10,11 +10,8 @@ define(function(require){
 	return {
 		
 		//ajax call
-		movies: function() {
+		movies: function(movieInput) {
 			var deferred = Q.defer();
-			var movieInput = $("#inputTitle").val().toLowerCase();
-			
-			
 			// console.log("movie input", movieInput);
 			$.ajax({url: "http://www.omdbapi.com/?s=" + movieInput + "&type=movie",
 				method: "GET"

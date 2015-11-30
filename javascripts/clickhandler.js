@@ -157,11 +157,11 @@ define(function(require) {
     });  
 
   // User click will delete selected movie from Firebase and reload DOM
-  $(document).on("click", ".delete", function(e) {
+  $(document).on("click", "#delete", function(e) {
     console.log("delete button is working!!!!");
     console.log(this);
     // Removing selected item from Firebase
-    var movieKey = $(this).attr('id');
+    var movieKey = $(this).attr('yep');
     console.log("movieKey", movieKey);
     del(movieKey);
   });
@@ -171,6 +171,8 @@ define(function(require) {
     console.log("watch button works, and shows stars");
     // console.log("this", this);
     var movieKey = $(this).attr('id');
+    $(".watch-button").hide();
+    $(".star-container").show();
     console.log("movieKey", movieKey);
     mr(movieKey);
   });
