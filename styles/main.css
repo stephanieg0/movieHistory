@@ -182,7 +182,7 @@ a {
   border-radius: 50%;
   background-color: #000;
   position: relative;
-  top: 15px;
+  /*top: -15px;*/
   left: 230px;
   color: #fff;
   width: 28px;

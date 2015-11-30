@@ -5,23 +5,18 @@ define(function(require){
 	var gs = require("get-set");
 
 		
- 	return function(changeThisMovie){
- 		console.log("changeThisMovie", changeThisMovie);
+ 	return function(starsKey){
+ 		console.log("starsKey", starsKey);
 		//current user id
 		var uuid = gs.getUid();
 		console.log("uuid", uuid);
 		//firebase reference to upload to specific url
-		var ref = new Firebase("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies/" + changeThisMovie);
-		//updating a watched value to true.
-  		ref.update({
-  			"watched": true
-  		});
-
-		//Get the value of the selected star
-		$(':radio').change(function(){
-			$('.choice').text( this.value + ' stars' );
-			var currentStars = this.value;
-			console.log(currentStars, "stars");
+		var ref = new Firebase("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies/" + starsKey);
+		
+		$(':radio').change(function(starsKey){
+      	$('.choice').text( this.value + ' stars' );
+      	var currentStars = this.value;
+      	console.log(currentStars, "stars");
 
 			//updating the star value in firebase
 			ref.update({
@@ -33,6 +28,6 @@ define(function(require){
 						console.log("on firebase");
 					}	
 				});
-			});
+		});
 	};
 });//end of define

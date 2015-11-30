@@ -9,6 +9,7 @@ define(function(require) {
   var del = require("deleteMovie");
   var mr = require("movie-rating");
   var omdb = require("omdbAjax");
+  var mw = require("movie-watchKey");
   
   
   // Ref to firebase
@@ -151,7 +152,7 @@ define(function(require) {
       console.log("imdb", imdb);
       $(this).hide();
       console.log($(this))
-      $(this).siblings(".watch-button").show();
+      $(".watch-button").show();
 
       console.log("isss this working???", imdb);
       console.log("add click");
@@ -176,7 +177,7 @@ define(function(require) {
     $(".watch-button").hide();
     $(".star-container").show();
     console.log("movieKey", movieKey);
-    mr(movieKey);
+    mw(movieKey);
   });
 
   // More info modal
@@ -195,7 +196,19 @@ define(function(require) {
     });
   });
 
-});
+  //Stars clicked.
+    $("body").on("click", ".star-container", function(){
+      console.log("stars container is being clicked");
+      // console.log("this", this);
+      var starsKey = $(this).attr('id');
+      console.log("starsKey", starsKey);
+
+      mr(starsKey);
+
+    });
+
+
+});//end of define
 
 
 
