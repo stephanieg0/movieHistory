@@ -6,29 +6,29 @@ define(function(require){
 	var gs = require("get-set");
 	var dom = require("dom");
 
-	// Declaring variables for later use
-	// Variable for movie search input
-	var movieInput;
-	// Variable for storing Firebase values
-	var firebaseData;
-	// Variable for API movie search
-	var searchMoviesArray = [];
-	// Variable for Firebase movie search
-	var myMoviesArray = [];
-	// Variable for filtered movies
-	var filteredArray = [];
-	// Variable for combining movies
-	var combinedArray = [];
-	// Variable for checking for unique movies
-	var uniqueMovies;
 	
 	//clicking for search. call a promise that will return the movie-data from url
 	$("#searchBox").keypress(function(){
+		// Declaring variables for later use
+		// Variable for movie search input
+		var movieInput;
+		// Variable for storing Firebase values
+		var firebaseData;
+		// Variable for API movie search
+		var searchMoviesArray = [];
+		// Variable for Firebase movie search
+		var myMoviesArray = [];
+		// Variable for filtered movies
+		var filteredArray = [];
+		// Variable for combining movies
+		var combinedArray = [];
+		// Variable for checking for unique movies
+		var uniqueMovies = [];
 		if(event.which == 13){
+			$("#movie-poster").empty();
 			console.log("click is working");
 			// Clearing DOM
-			uniqueMovies = [];
-			$("#movie-poster").empty();
+			// uniqueMovies = [];
 			// Getting searchBox input
 			movieInput = $("#inputTitle").val().toLowerCase();
 			// Making Ajax call

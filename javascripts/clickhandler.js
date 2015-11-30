@@ -175,7 +175,7 @@ define(function(require) {
     // console.log("this", this);
     var movieKey = $(this).attr('id');
     $(".watch-button").hide();
-    $(".star-container").show();
+    // $(".star-container").show();
     console.log("movieKey", movieKey);
     mw(movieKey);
   });
