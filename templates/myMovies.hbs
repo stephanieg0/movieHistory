@@ -2,9 +2,11 @@
 {{#each this}}
 	{{#if added}}
 	<div class="col-md-3">
-		<button type="button" class="btn btn-default btn-sm 
-	  		glyphicon glyphicon-trash" id="delete" yep="{{imdbID}}" aria-hidden="true">
-		</button>
+		{{!-- <div>
+			<button type="button" class="btn btn-default btn-sm 
+		  		glyphicon glyphicon-trash" id="delete" yep="{{imdbID}}" aria-hidden="true">
+			</button>
+		</div> --}}
 		{{else}}
 		<div class="col-md-3 no-poster">
 		{{/if}}
@@ -34,6 +36,7 @@
 		{{else}}
 
 			<div type="button" class="btn btn-warning add-button" imdb="{{imdbID}}">Add</div>
+
 	{{/if}}
 
 	</div>

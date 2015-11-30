@@ -88,7 +88,7 @@ define(function(require){
 							console.log("uniqueMovies", uniqueMovies);
 							// Sending uniqueMovies through Handlebars
 							require(['hbs!../templates/myMovies'], function (formTemplate) {
-			    				console.log("movieDataTemplate is running");
+			    				console.log("myMovies is running");
 			    				$("#movie-poster").append(formTemplate(uniqueMovies));
 			    			});
 							// movieDom.movieForm(uniqueMovies);
