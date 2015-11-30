@@ -158,6 +158,10 @@ a {
 .hidden {
   display: hidden; }
 
+img {
+  vertical-align: initial; 
+}
+
 
 /*# sourceMappingURL=main.css.map */
 
