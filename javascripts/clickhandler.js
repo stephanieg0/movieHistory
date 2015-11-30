@@ -174,7 +174,7 @@ define(function(require) {
     console.log("watch button works, and shows stars");
     // console.log("this", this);
     var movieKey = $(this).attr('id');
-    $(".watch-button").hide();
+    $(this).hide();
     // $(".star-container").show();
     console.log("movieKey", movieKey);
     mw(movieKey);

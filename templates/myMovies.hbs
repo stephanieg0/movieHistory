@@ -2,16 +2,20 @@
 {{#each this}}
 	{{#if added}}
 	<div class="col-md-3">
-		{{!-- <div>
+		<span>
 			<button type="button" class="btn btn-default btn-sm 
 		  		glyphicon glyphicon-trash" id="delete" yep="{{imdbID}}" aria-hidden="true">
 			</button>
-		</div> --}}
+		</span>
 		{{else}}
 		<div class="col-md-3 no-poster">
+			<div></div>
 		{{/if}}
 	{{#if Poster}}
-			<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movieCast movie-posters-dimensions" alt="{{title}}" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}"></img>
+
+	
+			<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movieCast movie-posters-dimensions" alt="{{title}}" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}"
+			></img>
 			
 		{{else}}
 			<div class="movie-titles noposter movieCast" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}">{{Title}}</div>
