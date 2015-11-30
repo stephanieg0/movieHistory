@@ -98,7 +98,10 @@ define(function(require) {
       var snapKey = snapshot.key();
       var snapshot = snapshot.val();
       var title = snapshot.title;
-      console.log("title", title);
+      var starsValue = snapshot.stars;
+      // console.log("title", title);
+      // console.log("stars", starsValue);
+      // console.log("snapKey", snapKey);
       showMovies.allMovies({[snapKey]: snapshot});
     });
   });
