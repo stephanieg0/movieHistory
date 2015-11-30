@@ -152,7 +152,7 @@ define(function(require) {
       console.log("imdb", imdb);
       $(this).hide();
       console.log($(this))
-      $(".watch-button").show();
+      $(this).siblings(".watch-button").show();
 
       console.log("isss this working???", imdb);
       console.log("add click");
