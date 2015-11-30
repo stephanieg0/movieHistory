@@ -200,10 +200,10 @@ define(function(require) {
     $("body").on("click", ".star-container", function(){
       console.log("stars container is being clicked");
       // console.log("this", this);
-      var starsKey = $(this).attr('id');
-      console.log("starsKey", starsKey);
+      var movieKey = $(this).attr('id');
+      console.log("starsKey", movieKey);
 
-      mr(starsKey);
+      mr(movieKey);
 
     });
 
