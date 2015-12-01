@@ -107,16 +107,45 @@ define(function(require) {
   });
 
 // Favorites button will show all favorited(5 stars) movie posters on user profile to DOM
-  $("#favorites").click(function(){
-      console.log("favorites click");
+
+
+  var el, newPoint, newPlace, offset;
+
+ 
+// Select all range inputs, watch for change
+  $("input[type='range']").change(function (rangeValue) {
+     // Cache this for efficiency
+     el = $(this);
+     // Measure width of range input
+     width = el.width();
+     
+     // Figure out placement percentage between left and right of input
+     newPoint = (el.val() - el.attr("min"));
+     console.log("WHAT IS THE VALUE????", newPoint);
+      
+      offset = -1;
+
+     // Prevent bubble from going beyond left or right (unsupported browsers)
+     // if (newPoint < 0) { newPlace = 0;      }
+     // else if (newPoint > 1) { newPlace = width; }
+     // else { newPlace = newPoint += offset; offset -= newPoint; }
+     
+     // Move bubble
+     el
+       .next("output").css({
+         left: newPlace,
+         marginLeft: offset + "%"
+       }).text(el.val())
+     // Fake a change to position bubble at page load
+        .trigger('change');
       // Getting user unique ID
       uuid = gs.getUid();
       // Resetting DOM
       $("#movie-poster").empty();
       // Referencing Fireabse
       var ref = new Firebase ("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies");
-      console.log("ref", ref);
-      ref.orderByChild("stars").equalTo(5).on("child_added", function(snapshot) {
+
+      ref.orderByChild("stars").equalTo(newPoint).on("child_added", function(snapshot) {
       console.log(snapshot.val());
       var snapKey = snapshot.key();
       var snapshot = snapshot.val();

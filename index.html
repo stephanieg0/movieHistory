@@ -10,6 +10,12 @@
   <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles/main.css">
   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+  <script type="text/javascript">
+    
+
+  </script>
+
 </head>
 
 <body>
@@ -20,7 +26,13 @@
               <li id="searchBox"><input class="form-control" id="inputTitle" type="search" placeholder="Search Movies..."></li>
               <li role="presentation" id="logout"><a href="#">Log Out</a></li>
         </ul>
-      <a id="all" class="links" href="#">All</a><a class="not-active">|</a><a id="unwatched" class="links" href="#">Unwatched</a><a class="not-active">|</a><a id="watched" class="links" href="#">Watched</a><a class="not-active">|</a><a id="favorites" class="links" href="#">Favorites</a>
+      <a id="all" class="links" href="#">All</a><a class="not-active">|</a><a id="unwatched" class="links" href="#">Unwatched</a><a class="not-active">|</a><a id="watched" class="links" href="#">Watched</a><a class="not-active">|</a>
+      <form>
+      <input id="rating" type="range" name="rate" min="0" max="10" width="50">
+      <output for="rate" onforminput="value = rate.valueAsNumber;"></output>
+      </form>
+
+
     </nav>
 
 
