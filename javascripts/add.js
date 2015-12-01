@@ -50,6 +50,7 @@ define(function(require){
 		  		"imdbID": imdbId,
 		  		"stars": 0,
 		  		"watched": false,
+		  		"inactive": false,
 		  		"Poster": "http://img.omdbapi.com/?i=" + imdbId + "&apikey=8513e0a1"
 
 
