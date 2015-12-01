@@ -1,55 +1,50 @@
 <!--Movie Poster with buttons and stars-->
 {{#each this}}
-	{{#if added}}
-	<div class="col-md-3">
-		
-			<button type="button" class="btn btn-default btn-sm 
-		  		glyphicon glyphicon-trash" id="delete" yep="{{imdbID}}" aria-hidden="true">
-			</button>
-		
+	{{#if inactive}}
 		{{else}}
-		<div class="col-md-3 no-poster">
-			<div></div>
-		{{/if}}
-	{{#if Poster}}
+			{{#if added}} <!-- If added is true; show trash icon-->			
+				<div class="col-md-3">
+					<button type="button" class="btn btn-default btn-sm 
+				  		glyphicon glyphicon-trash" id="delete" yep="{{imdbID}}" aria-hidden="true">
+					</button>		
+				{{else}}
+				<div class="col-md-3 no-poster">
+					<div></div>	
+			{{/if}}<!-- end of added -->
 
-	
-			<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movieCast movie-posters-dimensions" alt="{{title}}" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}"
-			></img>
-			
-		{{else}}
-			<div class="movie-titles noposter movieCast" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}">{{Title}}</div>
-			
+			{{#if Poster}}<!-- If there is a poster key; show poster image=url-->
+				<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movieCast movie-posters-dimensions" alt="{{title}}" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}"
+				></img>		
+				{{else}}<!-- If not poster is found; show title only -->
+					<div class="movie-titles noposter movieCast" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}">{{Title}}</div>
+			{{/if}}<!--end of Poster-->
 
-	{{/if}}
-	{{#if added}}
-		{{#if watched}}
-			<div class="star-container" id="{{@key}}">
-			  <span class="star-rating" id="{{@key}}">
-			{{#times stars}}
-			    <img src='data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4='>
-			{{/times}}
-			    <input type="radio" name="rating" value="1"><i></i>
-			    <input type="radio" name="rating" value="2"><i></i>
-			    <input type="radio" name="rating" value="3"><i></i>
-			    <input type="radio" name="rating" value="4"><i></i>
-			    <input type="radio" name="rating" value="5"><i></i>
-			    <input type="radio" name="rating" value="6"><i></i>
-			    <input type="radio" name="rating" value="7"><i></i>
-			    <input type="radio" name="rating" value="8"><i></i>
-			    <input type="radio" name="rating" value="9"><i></i>
-			    <input type="radio" name="rating" value="10"><i></i>
-			  </span>
-			</div>
-			{{else}}
-				<div type="button" class="btn btn-success watch-button" id="{{imdbID}}">Watch</div>
-		{{/if}}
+			{{#if added}}<!-- If added and If watched is true; show stars for rating-->
+				{{#if watched}}
+					<div class="star-container" id="{{@key}}">
+					  <span class="star-rating" id="{{@key}}">
+					{{#times stars}} <!--"times" is a handlebars helper in the dependencies.js that adds img=src the number of times registered in the value key; if value key is 0, times will not add yellow star image-->
+					    <img src='data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4='>
+					{{/times}}
+					    <input type="radio" name="rating" value="1"><i></i>
+					    <input type="radio" name="rating" value="2"><i></i>
+					    <input type="radio" name="rating" value="3"><i></i>
+					    <input type="radio" name="rating" value="4"><i></i>
+					    <input type="radio" name="rating" value="5"><i></i>
+					    <input type="radio" name="rating" value="6"><i></i>
+					    <input type="radio" name="rating" value="7"><i></i>
+					    <input type="radio" name="rating" value="8"><i></i>
+					    <input type="radio" name="rating" value="9"><i></i>
+					    <input type="radio" name="rating" value="10"><i></i>
+					  </span>
+					</div>
+					{{else}}
+						<div type="button" class="btn btn-success watch-button" id="{{imdbID}}">Watch</div>
+				{{/if}}<!-- end of watched -->
 
-		{{else}}
-
-			<div type="button" class="btn btn-warning add-button" imdb="{{imdbID}}">Add</div>
-
-	{{/if}}
-
-	</div>
-{{/each}}
+				{{else}}
+					<div type="button" class="btn btn-warning add-button" imdb="{{imdbID}}">Add</div>
+			{{/if}}<!--end of added-->
+			</div><!-- end of col-md-3-->
+	{{/if}}<!--end of inactive -->
+{{/each}}<!--end of this-->
