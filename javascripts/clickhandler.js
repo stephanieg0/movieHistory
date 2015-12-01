@@ -98,7 +98,10 @@ define(function(require) {
       var snapKey = snapshot.key();
       var snapshot = snapshot.val();
       var title = snapshot.title;
-      console.log("title", title);
+      var starsValue = snapshot.stars;
+      // console.log("title", title);
+      // console.log("stars", starsValue);
+      // console.log("snapKey", snapKey);
       showMovies.allMovies({[snapKey]: snapshot});
     });
   });
@@ -174,8 +177,8 @@ define(function(require) {
     console.log("watch button works, and shows stars");
     // console.log("this", this);
     var movieKey = $(this).attr('id');
-    $(".watch-button").hide();
-    $(".star-container").show();
+    $(this).hide();
+    // $(".star-container").show();
     console.log("movieKey", movieKey);
     mw(movieKey);
   });
@@ -200,10 +203,10 @@ define(function(require) {
     $("body").on("click", ".star-container", function(){
       console.log("stars container is being clicked");
       // console.log("this", this);
-      var starsKey = $(this).attr('id');
-      console.log("starsKey", starsKey);
+      var movieKey = $(this).attr('id');
+      console.log("starsKey", movieKey);
 
-      mr(starsKey);
+      mr(movieKey);
 
     });
 

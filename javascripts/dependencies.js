@@ -5,6 +5,16 @@ define(function(require){
 	var lodash = require("lodash");
 	var Firebase = require("firebase");
 	var Q = require("q");
+	var hbsFull = require("hbs/handlebars");
+
+
+	 //helper for stars
+    hbsFull.registerHelper('times', function(n, block) {
+    var accum = '';
+    for(var i = 0; i < n; ++i)
+        accum += block.fn(i);
+    return accum;
+      });
 
 });
 

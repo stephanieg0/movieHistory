@@ -5,22 +5,23 @@ define(function(require){
 	var gs = require("get-set");
 
 		
- 	return function(starsKey){
- 		console.log("starsKey", starsKey);
+ 	return function(movieKey){
+ 		console.log("movieKey", movieKey);
 		//current user id
 		var uuid = gs.getUid();
 		console.log("uuid", uuid);
 		//firebase reference to upload to specific url
-		var ref = new Firebase("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies/" + starsKey);
+		var ref = new Firebase("https://movie-history-app.firebaseio.com/users/" + uuid + "/movies/" + movieKey);
 		
-		$(':radio').change(function(starsKey){
+		$(':radio').change(function(movieKey){
       	$('.choice').text( this.value + ' stars' );
-      	var currentStars = this.value;
-      	console.log(currentStars, "stars");
+      	var starsValue = this.value;
+      	var starsValueNumber = parseInt(starsValue)
+      	console.log(starsValueNumber, "stars");
 
 			//updating the star value in firebase
 			ref.update({
-				"stars": currentStars
+				"stars": starsValueNumber
 				}, function(error, userData){
 					if (error) {
 						alert(error);

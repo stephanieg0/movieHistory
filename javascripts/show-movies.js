@@ -32,6 +32,7 @@ define(function(require) {
 
 		// Called on clickhandler.js
 		allMovies: function(data) {
+			var uuid = gs.getUid();
 			// Sending movie object through template
 			require(["hbs!../templates/myMovies"], function (all){
 				console.log("data", data);
@@ -41,6 +42,7 @@ define(function(require) {
 	            $(".star-container").show();
 	          	// Show watch button
 	            $(".watch-button").show();
+
 			});
 		},
 
