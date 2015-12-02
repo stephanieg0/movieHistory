@@ -126,9 +126,9 @@ define(function(require) {
       offset = -1;
 
      // Prevent bubble from going beyond left or right (unsupported browsers)
-     // if (newPoint < 0) { newPlace = 0;      }
-     // else if (newPoint > 1) { newPlace = width; }
-     // else { newPlace = newPoint += offset; offset -= newPoint; }
+       // if (newPoint < 0) { newPlace = 0; }
+       // else if (newPoint > 1) { newPlace = width; }
+       // else { newPlace = width * newPoint + offset; offset -= newPoint; }
      
      // Move bubble
      el
