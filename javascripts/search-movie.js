@@ -30,7 +30,8 @@ define(function(require){
 			// Clearing DOM
 			// uniqueMovies = [];
 			// Getting searchBox input
-			movieInput = $("#inputTitle").val().toLowerCase();
+			movieInput = $("#inputTitle").val().toLowerCase().replace(/ /g, "+");
+			console.log("movie input", movieInput);
 			// Making Ajax call
 			movieData.movies(movieInput)
 				// Returning from Ajax

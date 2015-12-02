@@ -23,7 +23,7 @@ define(function(require){
       		var title = data.Title;
       		console.log("title", title);
       		// normalizing title
-      		var lowerTitle= title.toLowerCase().replace(/ /g, "_");
+      		var lowerTitle= title.toLowerCase().replace(/ /g, "+");
       		// Getting movie year from movie object
       		var year = data.Year;
       		console.log("year", year);
