@@ -26,12 +26,14 @@
               <li id="searchBox"><input class="form-control" id="inputTitle" type="search" placeholder="Search Movies..."></li>
               <li role="presentation" id="logout"><a href="#">Log Out</a></li>
         </ul>
+      <div>
       <a id="all" class="links" href="#">All</a><a class="not-active">|</a><a id="unwatched" class="links" href="#">Unwatched</a><a class="not-active">|</a><a id="watched" class="links" href="#">Watched</a><a class="not-active">|</a>
+      <!-- <label for="rate">Search By Star Rating:</label> -->
       <form>
-      <input id="rating" type="range" name="rate" min="0" max="10" width="50">
+      <input id="rating" type="range" name="rate" min="0" max="10">
       <output for="rate" onforminput="value = rate.valueAsNumber;"></output>
       </form>
-
+      </div>
 
     </nav>
 
