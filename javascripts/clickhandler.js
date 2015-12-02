@@ -195,6 +195,8 @@ define(function(require) {
   $(document).on("click", "#delete", function(e) {
     console.log("delete button is working!!!!");
     console.log(this);
+    // Hiding delete button when pressed
+    $(this).hide();
     // Removing selected item from Firebase
     var movieKey = $(this).attr('yep');
     console.log("movieKey", movieKey);

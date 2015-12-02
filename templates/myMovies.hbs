@@ -3,16 +3,19 @@
 	{{#if inactive}}
 		{{else}}
 			{{#if added}} <!-- If added is true; show trash icon-->			
-				<div class="col-md-3">
-					<button type="button" class="btn btn-default btn-sm 
-				  		glyphicon glyphicon-trash" id="delete" yep="{{imdbID}}" aria-hidden="true">
-					</button>		
+				{{!-- <div class="col-md-3"> --}}
+				<div class="col-xs-6 col-md-3">
+    				<a href="#" class="thumbnail">
+						<span type="button" class="btn btn-default btn-sm 
+				  			glyphicon glyphicon-trash" id="delete" yep="{{imdbID}}" aria-hidden="true">
+						</span>		
 				{{else}}
-				<div class="col-md-3 no-poster">
-					<div></div>	
+				<div class="col-xs-6 col-md-3 no-poster">
+					<a href="#" class="thumbnail">
 			{{/if}}<!-- end of added -->
 
 			{{#if Poster}}<!-- If there is a poster key; show poster image=url-->
+
 				<img src="http://img.omdbapi.com/?i={{imdbID}}&apikey=7c212437" class="movieCast movie-posters-dimensions" alt="{{title}}" data-toggle="modal" data-target="#movieInfoModal" id="{{imdbID}}"
 				></img>		
 				{{else}}<!-- If not poster is found; show title only -->
@@ -45,6 +48,7 @@
 				{{else}}
 					<div type="button" class="btn btn-warning add-button" imdb="{{imdbID}}">Add</div>
 			{{/if}}<!--end of added-->
+				</a>
 			</div><!-- end of col-md-3-->
 	{{/if}}<!--end of inactive -->
 {{/each}}<!--end of this-->
