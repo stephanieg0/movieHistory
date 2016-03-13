@@ -7,6 +7,8 @@
 
 movieHistory is a CRUD (Create, Read, Update, Delete) application that allows the user to store and rate movies that they have have viewed, or plan to view.
 
+The movieHistory application uses the OMDB api to get movie information and uses Firebase to store that information for the user. Other technologies used in the application are: Q, jQuery, Grunt, SASS, and handlebars.
+
 Built by <a href="https://github.com/stephanieg0">Stephanie Goldstein</a>, <a href="https://github.com/ChristinaJYoung">Christina Young</a>, and <a href="https://github.com/micahp0506">Micah Wells</a> as a group project at Nashville Software School.
 
 ## Installation
