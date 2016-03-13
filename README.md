@@ -7,7 +7,7 @@
 
 movieHistory is a CRUD (Create, Read, Update, Delete) application that allows the user to store and rate movies that they have have viewed, or plan to view.
 
-Built by <a href="https://github.com/stephanieg0">Stephanie Goldstein</a>, <a href="https://https://github.com/ChristinaJYoung">Christina Young</a>, and <a href="https://github.com/micahp0506">Micah Wells</a> as a group project at Nashville Software School.
+Built by <a href="https://github.com/stephanieg0">Stephanie Goldstein</a>, <a href="https://github.com/ChristinaJYoung">Christina Young</a>, and <a href="https://github.com/micahp0506">Micah Wells</a> as a group project at Nashville Software School.
 
 ## Installation
 If you don't have NPM yet, from your terminal:
